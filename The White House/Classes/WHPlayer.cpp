@@ -12,10 +12,15 @@ namespace WH
 {
 	RNDefineMeta(Player, RN::Entity)
 	
-	Player::Player()
+	Player::Player(RN::Camera *camera) :
+		_camera(camera)
 	{
 		_controller = new RN::bullet::KinematicController(RN::bullet::CapsuleShape::WithRadius(0.5f, 1.8f), 0.7f);
+		
 		AddAttachment(_controller);
+		AddChild(_camera);
+		
+		_camera->SetPosition(RN::Vector3(0.0f, 1.4f, 0.0f));
 	}
 	
 	Player::~Player()
@@ -32,9 +37,12 @@ namespace WH
 		
 		
 		RN::Vector3 direction(input->IsKeyPressed('d')-input->IsKeyPressed('a'), 0.0f, input->IsKeyPressed('s')-input->IsKeyPressed('w'));
-	
+		RN::Vector3 rotation(input->GetMouseDelta().x, input->GetMouseDelta().y, 0.0f);
+		
+		Rotate(rotation);
+		
 		direction = GetWorldRotation().GetRotatedVector(direction);
-		direction *= 5.0f;
+		direction *= 0.2f;
 		
 		_controller->SetWalkDirection(direction);
 	}

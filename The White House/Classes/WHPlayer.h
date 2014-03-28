@@ -17,13 +17,13 @@ namespace WH
 	class Player : public RN::Entity
 	{
 	public:
-		Player();
+		Player(RN::Camera *camera);
 		~Player() override;
 		
 		void Update(float delta) override;
 		
 	private:
-		
+		RN::Camera *_camera;
 		RN::bullet::KinematicController *_controller;
 		
 		RNDeclareMeta(Player)
