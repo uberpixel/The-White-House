@@ -50,6 +50,8 @@ namespace WH
 	void World::LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer)
 	{
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB888, RN::Camera::Flags::Defaults);
+		
+		RN::Entity *level = new RN::Entity(RN::Model::WithFile("Models/Levels/Level1.dae"));
 	}
 
 	void World::Update(float delta)
