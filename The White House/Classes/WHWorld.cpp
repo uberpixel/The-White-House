@@ -37,7 +37,7 @@ namespace WH
 			{
 				case '0':
 				{
-					RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("DPToggle"), nullptr, nullptr);
+					//RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("DPToggle"), nullptr, nullptr);
 					break;
 				}
 					
