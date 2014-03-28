@@ -10,6 +10,7 @@
 #define __WH_WORLD_H__
 
 #include <Rayne/Rayne.h>
+#include "RBPhysicsWorld.h"
 
 namespace WH
 {
@@ -25,6 +26,7 @@ namespace WH
 		
 	private:
 		RN::Camera *_camera;
+		RN::bullet::PhysicsWorld *_physicsWorld;
 	};
 }
 

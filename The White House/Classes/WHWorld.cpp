@@ -18,11 +18,15 @@ namespace WH
 			RN::Event *event = static_cast<RN::Event *>(message);
 			HandleInputEvent(event);
 		}, this);
+		
+		_physicsWorld = new RN::bullet::PhysicsWorld();
+		
+		AddAttachment(_physicsWorld);
 	}
 	
 	World::~World()
 	{
-		
+		_physicsWorld->Release();
 	}
 	
 	void World::HandleInputEvent(RN::Event *event)
