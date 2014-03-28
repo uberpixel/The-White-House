@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D528742218E5FF3300799F4F /* WHApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D528742118E5FF3300799F4F /* WHApplication.cpp */; };
+		D528742518E5FF3300799F4F /* WHWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D528742418E5FF3300799F4F /* WHWorld.cpp */; };
+		D528742918E5FF3300799F4F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D528742818E5FF3300799F4F /* main.cpp */; };
+		D528742C18E5FF3300799F4F /* The White House-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = D528742B18E5FF3300799F4F /* The White House-Prefix.pch */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D528741D18E5FF3300799F4F /* The White House.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The White House.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D528742118E5FF3300799F4F /* WHApplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WHApplication.cpp; path = Classes/WHApplication.cpp; sourceTree = "<group>"; };
+		D528742318E5FF3300799F4F /* WHApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHApplication.h; path = Classes/WHApplication.h; sourceTree = "<group>"; };
+		D528742418E5FF3300799F4F /* WHWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WHWorld.cpp; path = Classes/WHWorld.cpp; sourceTree = "<group>"; };
+		D528742618E5FF3300799F4F /* WHWorld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHWorld.h; path = Classes/WHWorld.h; sourceTree = "<group>"; };
+		D528742818E5FF3300799F4F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "Supporting files/main.cpp"; sourceTree = "<group>"; };
+		D528742A18E5FF3300799F4F /* The White House-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "The White House-Info.plist"; path = "Supporting files/The White House-Info.plist"; sourceTree = "<group>"; };
+		D528742B18E5FF3300799F4F /* The White House-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "The White House-Prefix.pch"; path = "Supporting files/The White House-Prefix.pch"; sourceTree = "<group>"; };
+		D528742E18E5FF3300799F4F /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		D528742F18E5FF3300799F4F /* settings.json */ = {isa = PBXFileReference; lastKnownFileType = folder; name = settings.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D528741918E5FF3300799F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D528741318E5FF3300799F4F = {
+			isa = PBXGroup;
+			children = (
+				D528741F18E5FF3300799F4F /* The White House */,
+				D528741E18E5FF3300799F4F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D528741E18E5FF3300799F4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D528741D18E5FF3300799F4F /* The White House.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D528741F18E5FF3300799F4F /* The White House */ = {
+			isa = PBXGroup;
+			children = (
+				D528742D18E5FF3300799F4F /* Resources */,
+				D528742018E5FF3300799F4F /* Classes */,
+				D528742718E5FF3300799F4F /* Supporting files */,
+			);
+			path = "The White House";
+			sourceTree = "<group>";
+		};
+		D528742018E5FF3300799F4F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D528742118E5FF3300799F4F /* WHApplication.cpp */,
+				D528742318E5FF3300799F4F /* WHApplication.h */,
+				D528742418E5FF3300799F4F /* WHWorld.cpp */,
+				D528742618E5FF3300799F4F /* WHWorld.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		D528742718E5FF3300799F4F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D528742818E5FF3300799F4F /* main.cpp */,
+				D528742A18E5FF3300799F4F /* The White House-Info.plist */,
+				D528742B18E5FF3300799F4F /* The White House-Prefix.pch */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D528742D18E5FF3300799F4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D528742E18E5FF3300799F4F /* manifest.json */,
+				D528742F18E5FF3300799F4F /* settings.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D528741A18E5FF3300799F4F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D528742C18E5FF3300799F4F /* The White House-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D528741C18E5FF3300799F4F /* The White House */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D528743218E5FF3300799F4F /* Build configuration list for PBXNativeTarget "The White House" */;
+			buildPhases = (
+				D528741818E5FF3300799F4F /* Sources */,
+				D528741918E5FF3300799F4F /* Frameworks */,
+				D528741A18E5FF3300799F4F /* Headers */,
+				D528741B18E5FF3300799F4F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "The White House";
+			productName = "The White House";
+			productReference = D528741D18E5FF3300799F4F /* The White House.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D528741418E5FF3300799F4F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WH;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Überpixel";
+			};
+			buildConfigurationList = D528741718E5FF3300799F4F /* Build configuration list for PBXProject "The White House" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D528741318E5FF3300799F4F;
+			productRefGroup = D528741E18E5FF3300799F4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D528741C18E5FF3300799F4F /* The White House */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D528741B18E5FF3300799F4F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "OUTPUT_DIR=\"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Resources/\"\nRESOURCES_DIR=\"$PROJECT_DIR/$TARGET_NAME/Resources/\"\n\nrsync -avz \"$RESOURCES_DIR\" \"$OUTPUT_DIR\"\n\t\t\t\t\t";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D528741818E5FF3300799F4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D528742218E5FF3300799F4F /* WHApplication.cpp in Sources */,
+				D528742518E5FF3300799F4F /* WHWorld.cpp in Sources */,
+				D528742918E5FF3300799F4F /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D528743018E5FF3300799F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D528743118E5FF3300799F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D528743318E5FF3300799F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "The White House/Supporting files/The White House-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include/rayne/,
+					"\"$(SRCROOT)/The White House/Resources/Modules/Bullet/include\"",
+				);
+				INFOPLIST_FILE = "The White House/Supporting files/The White House-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib/,
+					"\"$(SRCROOT)/The White House/Resources/Modules/Bullet\"",
+				);
+				OTHER_LDFLAGS = (
+					"-lRayne",
+					"-lrayne-bullet",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D528743418E5FF3300799F4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "The White House/Supporting files/The White House-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"NDEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include/rayne/,
+					"\"$(SRCROOT)/The White House/Resources/Modules/Bullet/include\"",
+				);
+				INFOPLIST_FILE = "The White House/Supporting files/The White House-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib/,
+					"\"$(SRCROOT)/The White House/Resources/Modules/Bullet\"",
+				);
+				OTHER_LDFLAGS = (
+					"-lRayne",
+					"-lrayne-bullet",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D528741718E5FF3300799F4F /* Build configuration list for PBXProject "The White House" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D528743018E5FF3300799F4F /* Debug */,
+				D528743118E5FF3300799F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D528743218E5FF3300799F4F /* Build configuration list for PBXNativeTarget "The White House" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D528743318E5FF3300799F4F /* Debug */,
+				D528743418E5FF3300799F4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D528741418E5FF3300799F4F /* Project object */;
+}
