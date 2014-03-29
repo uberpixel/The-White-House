@@ -211,7 +211,7 @@ namespace WH
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
 		level->Release();
 		
-		Door *door = new Door(RN::Vector3(7.92063f, 0.32514f, 40.52977f), RN::Vector3(90.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		Door *door = new Door(RN::Vector3(7.92063f, 0.32514f, 40.52977f), RN::Vector3(270.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
@@ -243,7 +243,7 @@ namespace WH
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
 		level->Release();
 		
-		Door *door = new Door(RN::Vector3(-20.5f, 0.5f, -20.0f), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		Door *door = new Door(RN::Vector3(-20.67f, 0.45f, 21.26f), RN::Vector3(180.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
