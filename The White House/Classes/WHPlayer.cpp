@@ -20,7 +20,7 @@ namespace WH
 		AddAttachment(_controller);
 		AddChild(_camera);
 		
-		_camera->SetPosition(RN::Vector3(0.0f, 1.4f, 0.0f));
+		_camera->SetPosition(RN::Vector3(0.0f, 1.6f, 0.0f));
 	}
 	
 	Player::~Player()
@@ -37,11 +37,14 @@ namespace WH
 		
 		
 		RN::Vector3 direction(input->IsKeyPressed('d')-input->IsKeyPressed('a'), 0.0f, input->IsKeyPressed('s')-input->IsKeyPressed('w'));
-		RN::Vector3 rotation(input->GetMouseDelta().x, input->GetMouseDelta().y, 0.0f);
 		
-		Rotate(rotation);
+		RN::Vector3 rotationX(input->GetMouseDelta().x, 0.0f, 0.0f);
+		RN::Vector3 rotationY(0.0f, input->GetMouseDelta().y, 0.0f);
 		
-		direction = GetWorldRotation().GetRotatedVector(direction);
+		_camera->Rotate(rotationY);
+		Rotate(rotationX);
+		
+		direction = GetRotation().GetRotatedVector(direction);
 		direction *= 0.2f;
 		
 		_controller->SetWalkDirection(direction);
