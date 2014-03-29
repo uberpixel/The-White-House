@@ -23,6 +23,8 @@ namespace WH
 		void Update(float delta) override;
 		
 	private:
+		void Attack();
+		
 		RN::Camera *_camera;
 		RN::bullet::KinematicController *_controller;
 		

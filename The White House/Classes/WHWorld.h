@@ -13,6 +13,7 @@
 #include "RBPhysicsWorld.h"
 #include "WHStaticEntity.h"
 #include "WHPlayer.h"
+#include "WHCritter.h"
 
 namespace WH
 {

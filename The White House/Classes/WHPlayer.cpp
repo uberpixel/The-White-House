@@ -7,6 +7,8 @@
 //
 
 #include "WHPlayer.h"
+#include "WHCritter.h"
+#include "RBPhysicsWorld.h"
 
 namespace WH
 {
@@ -29,6 +31,10 @@ namespace WH
 		_controller->Release();
 	}
 	
+	
+	void Player::Attack()
+	{
+	}
 	
 	void Player::Update(float delta)
 	{
@@ -55,5 +61,8 @@ namespace WH
 		
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
 			_controller->Jump();
+		
+		if(input->IsMousePressed(0))
+			Attack();
 	}
 }
