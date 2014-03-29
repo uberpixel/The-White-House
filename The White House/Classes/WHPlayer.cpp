@@ -15,7 +15,8 @@ namespace WH
 	RNDefineMeta(Player, RN::Entity)
 	
 	Player::Player(RN::Camera *camera) :
-		_camera(camera)
+		_camera(camera),
+		_mouseDown(false)
 	{
 		_controller = new RN::bullet::KinematicController(RN::bullet::CapsuleShape::WithRadius(0.5f, 1.8f), 0.7f);
 		_controller->SetJumpSpeed(3.4f);
@@ -34,6 +35,16 @@ namespace WH
 	
 	void Player::Attack()
 	{
+		RN::Vector3 source = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 1.8f));
+		RN::Vector3 target = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 120.0f));
+		
+		RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
+		
+		if(hit.node && hit.node->IsKindOfClass(Critter::MetaClass()))
+		{
+			Critter *critter = static_cast<Critter *>(hit.node);
+			critter->Splatter();
+		}
 	}
 	
 	void Player::Update(float delta)
@@ -63,6 +74,16 @@ namespace WH
 			_controller->Jump();
 		
 		if(input->IsMousePressed(0))
-			Attack();
+		{
+			if(!_mouseDown)
+			{
+				Attack();
+				_mouseDown = true;
+			}
+		}
+		else
+		{
+			_mouseDown = false;
+		}
 	}
 }

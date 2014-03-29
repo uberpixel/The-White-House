@@ -28,6 +28,8 @@ namespace WH
 		RN::Camera *_camera;
 		RN::bullet::KinematicController *_controller;
 		
+		bool _mouseDown;
+		
 		RNDeclareMeta(Player)
 	};
 }

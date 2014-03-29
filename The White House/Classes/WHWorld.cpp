@@ -52,7 +52,7 @@ namespace WH
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB888, RN::Camera::Flags::Defaults);
 		_player = new Player(_camera);
 		
-		_camera->SetFOV(90.0f);
+		//_camera->SetFOV(90.0f);
 		
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_01.sgm"));
 		level->Release();
@@ -67,7 +67,6 @@ namespace WH
 		leuchter->Release();
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
-		critter->Splatter();
 	}
 
 	void World::Update(float delta)
