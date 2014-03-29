@@ -66,10 +66,12 @@ namespace WH
 		
 		RN::Vector3 from = GetWorldPosition();
 		RN::Color color = _splatterColor;
-		std::chrono::milliseconds blubb(300);
-		RN::Timer::ScheduledTimerWithDuration(blubb, [from, color, emitter]{
+		
+		RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(500), [from, color, emitter]{
 			emitter->Release();
-			
+		}, false);
+		
+		RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(300), [from, color, emitter]{
 			RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 			
 			for(int i = 0; i < 20; i++)
