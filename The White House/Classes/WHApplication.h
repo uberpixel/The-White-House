@@ -22,6 +22,12 @@ namespace WH
 		
 		void Start() override;
 		void WillExit() override;
+		
+	private:
+		void UpdateCrosshair();
+		
+		RN::UI::Widget *_crosshairWidget;
+		RN::UI::ImageView *_crosshair;
 	};
 }
 

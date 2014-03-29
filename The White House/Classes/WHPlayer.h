@@ -29,6 +29,7 @@ namespace WH
 		RN::bullet::KinematicController *_controller;
 		
 		bool _mouseDown;
+		float _attackCooldown;
 		
 		RNDeclareMeta(Player)
 	};
