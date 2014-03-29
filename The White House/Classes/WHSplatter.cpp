@@ -17,7 +17,7 @@ namespace WH
 		
 	}
 	
-	void Splatter::Activate()
+	void Splatter::Activate(size_t fuse)
 	{
 		RN::GenericParticleEmitter *emitter = new RN::GenericParticleEmitter();
 		emitter->GetMaterial()->AddTexture(RN::Texture::WithFile("Textures/spatter/3.png"));
@@ -37,8 +37,8 @@ namespace WH
 		
 		RN::Vector3 from = _position;
 		RN::Color color = _color;
-		std::chrono::milliseconds blubb(300);
-		RN::Timer::ScheduledTimerWithDuration(blubb, [from, color, emitter]{
+		
+		RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(fuse), [from, color, emitter]{
 			emitter->Release();
 			
 			RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);

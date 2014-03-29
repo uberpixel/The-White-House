@@ -30,8 +30,11 @@ namespace WH
 		RN::Camera *_camera;
 		RN::bullet::KinematicController *_controller;
 		
+		bool _diedBrutally;
 		bool _mouseDown;
 		float _attackCooldown;
+		
+		RN::Random::MersenneTwister _random;
 		
 		RNDeclareMeta(Player)
 	};
