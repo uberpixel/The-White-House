@@ -134,7 +134,7 @@ namespace WH
 				{
 					RN::Decal *decal = new RN::Decal(RN::Texture::WithFile("Textures/spatter/Nose.png"));
 					decal->SetPosition(hit.position);
-					decal->SetRotation(RN::Quaternion::WithLookAt(-target));
+					decal->SetRotation(GetWorldRotation());
 					decal->SetScale(RN::Vector3(0.7f));
 					decal->GetMaterial()->SetDiffuseColor(RN::Color(0.629f, 0.007f, 0.049f));
 					decal->Release();

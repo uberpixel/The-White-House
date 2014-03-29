@@ -193,9 +193,9 @@ namespace WH
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
-		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetPosition(RN::Vector3(-9.20f, 7.36f, -7.13f));
 		light->SetIntensity(1.0f);
-		light->SetRange(20.0f);
+		light->SetRange(25.0f);
 		light->Release();
 		
 		
@@ -211,13 +211,25 @@ namespace WH
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
 		level->Release();
 		
-		Door *door = new Door(RN::Vector3(7.01063f, 0.32514f, 40.52977f), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		Door *door = new Door(RN::Vector3(7.92063f, 0.32514f, 40.52977f), RN::Vector3(90.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
-		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetPosition(RN::Vector3(0.24f, 12.31f, 34.69f));
 		light->SetIntensity(1.0f);
-		light->SetRange(20.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(31.97f, 12.31f, 18.88f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(8.52f, 12.30f, 7.22f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
 		light->Release();
 		
 		
@@ -235,11 +247,52 @@ namespace WH
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
-		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetPosition(RN::Vector3(-37.7f, 3.1f, 34.7f));
 		light->SetIntensity(1.0f);
-		light->SetRange(20.0f);
+		light->SetRange(25.0f);
 		light->Release();
 		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-21.7f, 3.1f, 34.7f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-1.1f, 3.1f, 40.5f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-1.1f, 3.1f, 24.5f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-20.3f, 3.1f, 20.3f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-37.7f, 3.1f, 9.3f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(-9.6, 3.1f, 6.5f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
+		
+		light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f, 3.1f, 0.0f));
+		light->SetIntensity(1.0f);
+		light->SetRange(25.0f);
+		light->Release();
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
