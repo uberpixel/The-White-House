@@ -1,5 +1,5 @@
 {
 	"RNUIStyle": "ui/rn_uistyle.json",
-	"RNModules": ["Modules/Downpour/libDownpour", "Modules/Assimp/librayne-assimp"],
+	"RNModules": ["Modules/Downpour/libDownpour", "Modules/Assimp/librayne-assimp", "Modules/OpenALHack/libOpenALHack"],
 	"RNApplication": "The White House"
 }
