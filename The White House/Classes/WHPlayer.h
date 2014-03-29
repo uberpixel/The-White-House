@@ -28,6 +28,7 @@ namespace WH
 		void Attack();
 		
 		RN::Camera *_camera;
+		RN::Entity *_shotgun;
 		RN::bullet::KinematicController *_controller;
 		
 		bool _diedBrutally;
@@ -37,6 +38,7 @@ namespace WH
 		
 		float _stepCooldown;
 		float _attackCooldown;
+		float _pushBack;
 		
 		RN::Random::MersenneTwister _random;
 		

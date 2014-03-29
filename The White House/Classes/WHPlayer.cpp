@@ -24,7 +24,8 @@ namespace WH
 		_noseBroken(false),
 		_noseTouch(false),
 		_attackCooldown(0.0f),
-		_stepCooldown(0.0f)
+		_stepCooldown(0.0f),
+		_pushBack(0.0f)
 	{
 		SetTag(kWHPlayerTag);
 		
@@ -35,6 +36,10 @@ namespace WH
 		AddChild(_camera);
 		
 		_camera->SetPosition(RN::Vector3(0.0f, 1.6f, 0.0f));
+		
+		_shotgun = new RN::Entity(RN::Model::WithFile("Models/shotgun/shotgun.sgm"));
+		AddChild(_shotgun);
+		_shotgun->SetPosition(RN::Vector3(0.3f, 1.4f, 0.2f));
 	}
 	
 	Player::~Player()
@@ -69,6 +74,8 @@ namespace WH
 			}
 		}
 		
+		_pushBack = 1.0f;
+		
 		_attackCooldown = 1.1f;
 	}
 	
@@ -83,10 +90,12 @@ namespace WH
 		RN::Vector3 rotationY(0.0f, input->GetMouseDelta().y, 0.0f);
 		
 		rotationY += _camera->GetRotation().GetEulerAngle();
+		rotationY.y += _pushBack * 10.0f;
 		rotationY.y = std::max(-80.0f, std::min(65.0f, rotationY.y));
 		
 		Rotate(rotationX);
 		_camera->SetRotation(rotationY);
+		_shotgun->SetRotation(rotationY);
 		
 		direction = GetRotation().GetRotatedVector(direction);
 		direction *= 0.1f;
@@ -102,7 +111,9 @@ namespace WH
 			}
 		}
 		
-		_controller->SetWalkDirection(direction);
+		_controller->SetWalkDirection(direction - GetForward() * _pushBack * 0.3f);
+		_pushBack = false;
+		
 		_attackCooldown = std::max(0.0f, _attackCooldown - delta);
 		
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
