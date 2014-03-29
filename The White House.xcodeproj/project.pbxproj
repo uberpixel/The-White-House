@@ -21,6 +21,57 @@
 		E950E5DA18E636C200898C17 /* WHStaticEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E5D818E636C200898C17 /* WHStaticEntity.h */; };
 		E950E5DD18E64BE000898C17 /* WHCritter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E5DB18E64BE000898C17 /* WHCritter.cpp */; };
 		E950E5DE18E64BE000898C17 /* WHCritter.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E5DC18E64BE000898C17 /* WHCritter.h */; };
+		E950E66118E740B100898C17 /* DebugDraw.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E61D18E740B100898C17 /* DebugDraw.h */; };
+		E950E66218E740B100898C17 /* DetourDebugDraw.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E61E18E740B100898C17 /* DetourDebugDraw.h */; };
+		E950E66318E740B100898C17 /* RecastDebugDraw.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E61F18E740B100898C17 /* RecastDebugDraw.h */; };
+		E950E66418E740B100898C17 /* RecastDump.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62018E740B100898C17 /* RecastDump.h */; };
+		E950E66518E740B100898C17 /* DebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E62218E740B100898C17 /* DebugDraw.cpp */; };
+		E950E66618E740B100898C17 /* DetourDebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E62318E740B100898C17 /* DetourDebugDraw.cpp */; };
+		E950E66718E740B100898C17 /* RecastDebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E62418E740B100898C17 /* RecastDebugDraw.cpp */; };
+		E950E66818E740B100898C17 /* RecastDump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E62518E740B100898C17 /* RecastDump.cpp */; };
+		E950E66918E740B100898C17 /* DetourAlloc.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62918E740B100898C17 /* DetourAlloc.h */; };
+		E950E66A18E740B100898C17 /* DetourAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62A18E740B100898C17 /* DetourAssert.h */; };
+		E950E66B18E740B100898C17 /* DetourCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62B18E740B100898C17 /* DetourCommon.h */; };
+		E950E66C18E740B100898C17 /* DetourNavMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62C18E740B100898C17 /* DetourNavMesh.h */; };
+		E950E66D18E740B100898C17 /* DetourNavMeshBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62D18E740B100898C17 /* DetourNavMeshBuilder.h */; };
+		E950E66E18E740B100898C17 /* DetourNavMeshQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62E18E740B100898C17 /* DetourNavMeshQuery.h */; };
+		E950E66F18E740B100898C17 /* DetourNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E62F18E740B100898C17 /* DetourNode.h */; };
+		E950E67018E740B100898C17 /* DetourStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63018E740B100898C17 /* DetourStatus.h */; };
+		E950E67118E740B100898C17 /* DetourAlloc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63218E740B100898C17 /* DetourAlloc.cpp */; };
+		E950E67218E740B100898C17 /* DetourCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63318E740B100898C17 /* DetourCommon.cpp */; };
+		E950E67318E740B100898C17 /* DetourNavMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63418E740B100898C17 /* DetourNavMesh.cpp */; };
+		E950E67418E740B100898C17 /* DetourNavMeshBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63518E740B100898C17 /* DetourNavMeshBuilder.cpp */; };
+		E950E67518E740B100898C17 /* DetourNavMeshQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63618E740B100898C17 /* DetourNavMeshQuery.cpp */; };
+		E950E67618E740B100898C17 /* DetourNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E63718E740B100898C17 /* DetourNode.cpp */; };
+		E950E67718E740B100898C17 /* DetourCrowd.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63B18E740B100898C17 /* DetourCrowd.h */; };
+		E950E67818E740B100898C17 /* DetourLocalBoundary.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63C18E740B100898C17 /* DetourLocalBoundary.h */; };
+		E950E67918E740B100898C17 /* DetourObstacleAvoidance.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63D18E740B100898C17 /* DetourObstacleAvoidance.h */; };
+		E950E67A18E740B100898C17 /* DetourPathCorridor.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63E18E740B100898C17 /* DetourPathCorridor.h */; };
+		E950E67B18E740B100898C17 /* DetourPathQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E63F18E740B100898C17 /* DetourPathQueue.h */; };
+		E950E67C18E740B100898C17 /* DetourProximityGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E64018E740B100898C17 /* DetourProximityGrid.h */; };
+		E950E67D18E740B100898C17 /* DetourCrowd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64218E740B100898C17 /* DetourCrowd.cpp */; };
+		E950E67E18E740B100898C17 /* DetourLocalBoundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64318E740B100898C17 /* DetourLocalBoundary.cpp */; };
+		E950E67F18E740B100898C17 /* DetourObstacleAvoidance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64418E740B100898C17 /* DetourObstacleAvoidance.cpp */; };
+		E950E68018E740B100898C17 /* DetourPathCorridor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64518E740B100898C17 /* DetourPathCorridor.cpp */; };
+		E950E68118E740B100898C17 /* DetourPathQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64618E740B100898C17 /* DetourPathQueue.cpp */; };
+		E950E68218E740B100898C17 /* DetourProximityGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64718E740B100898C17 /* DetourProximityGrid.cpp */; };
+		E950E68318E740B100898C17 /* DetourTileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E64B18E740B100898C17 /* DetourTileCache.h */; };
+		E950E68418E740B100898C17 /* DetourTileCacheBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E64C18E740B100898C17 /* DetourTileCacheBuilder.h */; };
+		E950E68518E740B100898C17 /* DetourTileCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64E18E740B100898C17 /* DetourTileCache.cpp */; };
+		E950E68618E740B100898C17 /* DetourTileCacheBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E64F18E740B100898C17 /* DetourTileCacheBuilder.cpp */; };
+		E950E68718E740B100898C17 /* Recast.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E65318E740B100898C17 /* Recast.h */; };
+		E950E68818E740B100898C17 /* RecastAlloc.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E65418E740B100898C17 /* RecastAlloc.h */; };
+		E950E68918E740B100898C17 /* RecastAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E65518E740B100898C17 /* RecastAssert.h */; };
+		E950E68A18E740B100898C17 /* Recast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65718E740B100898C17 /* Recast.cpp */; };
+		E950E68B18E740B100898C17 /* RecastAlloc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65818E740B100898C17 /* RecastAlloc.cpp */; };
+		E950E68C18E740B100898C17 /* RecastArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65918E740B100898C17 /* RecastArea.cpp */; };
+		E950E68D18E740B100898C17 /* RecastContour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65A18E740B100898C17 /* RecastContour.cpp */; };
+		E950E68E18E740B100898C17 /* RecastFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65B18E740B100898C17 /* RecastFilter.cpp */; };
+		E950E68F18E740B100898C17 /* RecastLayers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65C18E740B100898C17 /* RecastLayers.cpp */; };
+		E950E69018E740B100898C17 /* RecastMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65D18E740B100898C17 /* RecastMesh.cpp */; };
+		E950E69118E740B100898C17 /* RecastMeshDetail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65E18E740B100898C17 /* RecastMeshDetail.cpp */; };
+		E950E69218E740B100898C17 /* RecastRasterization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65F18E740B100898C17 /* RecastRasterization.cpp */; };
+		E950E69318E740B100898C17 /* RecastRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E66018E740B100898C17 /* RecastRegion.cpp */; };
 		E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */; };
 		E9CFA89018E6082E0033E61B /* WHPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CFA88E18E6082E0033E61B /* WHPlayer.h */; };
 /* End PBXBuildFile section */
@@ -47,6 +98,62 @@
 		E950E5DB18E64BE000898C17 /* WHCritter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHCritter.cpp; path = Classes/WHCritter.cpp; sourceTree = "<group>"; };
 		E950E5DC18E64BE000898C17 /* WHCritter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCritter.h; path = Classes/WHCritter.h; sourceTree = "<group>"; };
 		E950E61818E6FB4900898C17 /* WHDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHDefinition.h; path = Classes/WHDefinition.h; sourceTree = "<group>"; };
+		E950E61B18E740B100898C17 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		E950E61D18E740B100898C17 /* DebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugDraw.h; sourceTree = "<group>"; };
+		E950E61E18E740B100898C17 /* DetourDebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourDebugDraw.h; sourceTree = "<group>"; };
+		E950E61F18E740B100898C17 /* RecastDebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecastDebugDraw.h; sourceTree = "<group>"; };
+		E950E62018E740B100898C17 /* RecastDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecastDump.h; sourceTree = "<group>"; };
+		E950E62218E740B100898C17 /* DebugDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugDraw.cpp; sourceTree = "<group>"; };
+		E950E62318E740B100898C17 /* DetourDebugDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourDebugDraw.cpp; sourceTree = "<group>"; };
+		E950E62418E740B100898C17 /* RecastDebugDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastDebugDraw.cpp; sourceTree = "<group>"; };
+		E950E62518E740B100898C17 /* RecastDump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastDump.cpp; sourceTree = "<group>"; };
+		E950E62718E740B100898C17 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		E950E62918E740B100898C17 /* DetourAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourAlloc.h; sourceTree = "<group>"; };
+		E950E62A18E740B100898C17 /* DetourAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourAssert.h; sourceTree = "<group>"; };
+		E950E62B18E740B100898C17 /* DetourCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourCommon.h; sourceTree = "<group>"; };
+		E950E62C18E740B100898C17 /* DetourNavMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourNavMesh.h; sourceTree = "<group>"; };
+		E950E62D18E740B100898C17 /* DetourNavMeshBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourNavMeshBuilder.h; sourceTree = "<group>"; };
+		E950E62E18E740B100898C17 /* DetourNavMeshQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourNavMeshQuery.h; sourceTree = "<group>"; };
+		E950E62F18E740B100898C17 /* DetourNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourNode.h; sourceTree = "<group>"; };
+		E950E63018E740B100898C17 /* DetourStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourStatus.h; sourceTree = "<group>"; };
+		E950E63218E740B100898C17 /* DetourAlloc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourAlloc.cpp; sourceTree = "<group>"; };
+		E950E63318E740B100898C17 /* DetourCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourCommon.cpp; sourceTree = "<group>"; };
+		E950E63418E740B100898C17 /* DetourNavMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourNavMesh.cpp; sourceTree = "<group>"; };
+		E950E63518E740B100898C17 /* DetourNavMeshBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourNavMeshBuilder.cpp; sourceTree = "<group>"; };
+		E950E63618E740B100898C17 /* DetourNavMeshQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourNavMeshQuery.cpp; sourceTree = "<group>"; };
+		E950E63718E740B100898C17 /* DetourNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourNode.cpp; sourceTree = "<group>"; };
+		E950E63918E740B100898C17 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		E950E63B18E740B100898C17 /* DetourCrowd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourCrowd.h; sourceTree = "<group>"; };
+		E950E63C18E740B100898C17 /* DetourLocalBoundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourLocalBoundary.h; sourceTree = "<group>"; };
+		E950E63D18E740B100898C17 /* DetourObstacleAvoidance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourObstacleAvoidance.h; sourceTree = "<group>"; };
+		E950E63E18E740B100898C17 /* DetourPathCorridor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourPathCorridor.h; sourceTree = "<group>"; };
+		E950E63F18E740B100898C17 /* DetourPathQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourPathQueue.h; sourceTree = "<group>"; };
+		E950E64018E740B100898C17 /* DetourProximityGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourProximityGrid.h; sourceTree = "<group>"; };
+		E950E64218E740B100898C17 /* DetourCrowd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourCrowd.cpp; sourceTree = "<group>"; };
+		E950E64318E740B100898C17 /* DetourLocalBoundary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourLocalBoundary.cpp; sourceTree = "<group>"; };
+		E950E64418E740B100898C17 /* DetourObstacleAvoidance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourObstacleAvoidance.cpp; sourceTree = "<group>"; };
+		E950E64518E740B100898C17 /* DetourPathCorridor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourPathCorridor.cpp; sourceTree = "<group>"; };
+		E950E64618E740B100898C17 /* DetourPathQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourPathQueue.cpp; sourceTree = "<group>"; };
+		E950E64718E740B100898C17 /* DetourProximityGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourProximityGrid.cpp; sourceTree = "<group>"; };
+		E950E64918E740B100898C17 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		E950E64B18E740B100898C17 /* DetourTileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourTileCache.h; sourceTree = "<group>"; };
+		E950E64C18E740B100898C17 /* DetourTileCacheBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetourTileCacheBuilder.h; sourceTree = "<group>"; };
+		E950E64E18E740B100898C17 /* DetourTileCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourTileCache.cpp; sourceTree = "<group>"; };
+		E950E64F18E740B100898C17 /* DetourTileCacheBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetourTileCacheBuilder.cpp; sourceTree = "<group>"; };
+		E950E65118E740B100898C17 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		E950E65318E740B100898C17 /* Recast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recast.h; sourceTree = "<group>"; };
+		E950E65418E740B100898C17 /* RecastAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecastAlloc.h; sourceTree = "<group>"; };
+		E950E65518E740B100898C17 /* RecastAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecastAssert.h; sourceTree = "<group>"; };
+		E950E65718E740B100898C17 /* Recast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Recast.cpp; sourceTree = "<group>"; };
+		E950E65818E740B100898C17 /* RecastAlloc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastAlloc.cpp; sourceTree = "<group>"; };
+		E950E65918E740B100898C17 /* RecastArea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastArea.cpp; sourceTree = "<group>"; };
+		E950E65A18E740B100898C17 /* RecastContour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastContour.cpp; sourceTree = "<group>"; };
+		E950E65B18E740B100898C17 /* RecastFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastFilter.cpp; sourceTree = "<group>"; };
+		E950E65C18E740B100898C17 /* RecastLayers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastLayers.cpp; sourceTree = "<group>"; };
+		E950E65D18E740B100898C17 /* RecastMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastMesh.cpp; sourceTree = "<group>"; };
+		E950E65E18E740B100898C17 /* RecastMeshDetail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastMeshDetail.cpp; sourceTree = "<group>"; };
+		E950E65F18E740B100898C17 /* RecastRasterization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastRasterization.cpp; sourceTree = "<group>"; };
+		E950E66018E740B100898C17 /* RecastRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastRegion.cpp; sourceTree = "<group>"; };
 		E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHPlayer.cpp; path = Classes/WHPlayer.cpp; sourceTree = "<group>"; };
 		E9CFA88E18E6082E0033E61B /* WHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHPlayer.h; path = Classes/WHPlayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +191,7 @@
 				D528742D18E5FF3300799F4F /* Resources */,
 				D528742018E5FF3300799F4F /* Classes */,
 				D528742718E5FF3300799F4F /* Supporting files */,
+				E950E61918E740B100898C17 /* Vendor */,
 			);
 			path = "The White House";
 			sourceTree = "<group>";
@@ -131,6 +239,189 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E950E61918E740B100898C17 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E950E61A18E740B100898C17 /* DebugUtils */,
+				E950E62618E740B100898C17 /* Detour */,
+				E950E63818E740B100898C17 /* DetourCrowd */,
+				E950E64818E740B100898C17 /* DetourTileCache */,
+				E950E65018E740B100898C17 /* Recast */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		E950E61A18E740B100898C17 /* DebugUtils */ = {
+			isa = PBXGroup;
+			children = (
+				E950E61B18E740B100898C17 /* CMakeLists.txt */,
+				E950E61C18E740B100898C17 /* Include */,
+				E950E62118E740B100898C17 /* Source */,
+			);
+			path = DebugUtils;
+			sourceTree = "<group>";
+		};
+		E950E61C18E740B100898C17 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				E950E61D18E740B100898C17 /* DebugDraw.h */,
+				E950E61E18E740B100898C17 /* DetourDebugDraw.h */,
+				E950E61F18E740B100898C17 /* RecastDebugDraw.h */,
+				E950E62018E740B100898C17 /* RecastDump.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		E950E62118E740B100898C17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E950E62218E740B100898C17 /* DebugDraw.cpp */,
+				E950E62318E740B100898C17 /* DetourDebugDraw.cpp */,
+				E950E62418E740B100898C17 /* RecastDebugDraw.cpp */,
+				E950E62518E740B100898C17 /* RecastDump.cpp */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E950E62618E740B100898C17 /* Detour */ = {
+			isa = PBXGroup;
+			children = (
+				E950E62718E740B100898C17 /* CMakeLists.txt */,
+				E950E62818E740B100898C17 /* Include */,
+				E950E63118E740B100898C17 /* Source */,
+			);
+			path = Detour;
+			sourceTree = "<group>";
+		};
+		E950E62818E740B100898C17 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				E950E62918E740B100898C17 /* DetourAlloc.h */,
+				E950E62A18E740B100898C17 /* DetourAssert.h */,
+				E950E62B18E740B100898C17 /* DetourCommon.h */,
+				E950E62C18E740B100898C17 /* DetourNavMesh.h */,
+				E950E62D18E740B100898C17 /* DetourNavMeshBuilder.h */,
+				E950E62E18E740B100898C17 /* DetourNavMeshQuery.h */,
+				E950E62F18E740B100898C17 /* DetourNode.h */,
+				E950E63018E740B100898C17 /* DetourStatus.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		E950E63118E740B100898C17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E950E63218E740B100898C17 /* DetourAlloc.cpp */,
+				E950E63318E740B100898C17 /* DetourCommon.cpp */,
+				E950E63418E740B100898C17 /* DetourNavMesh.cpp */,
+				E950E63518E740B100898C17 /* DetourNavMeshBuilder.cpp */,
+				E950E63618E740B100898C17 /* DetourNavMeshQuery.cpp */,
+				E950E63718E740B100898C17 /* DetourNode.cpp */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E950E63818E740B100898C17 /* DetourCrowd */ = {
+			isa = PBXGroup;
+			children = (
+				E950E63918E740B100898C17 /* CMakeLists.txt */,
+				E950E63A18E740B100898C17 /* Include */,
+				E950E64118E740B100898C17 /* Source */,
+			);
+			path = DetourCrowd;
+			sourceTree = "<group>";
+		};
+		E950E63A18E740B100898C17 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				E950E63B18E740B100898C17 /* DetourCrowd.h */,
+				E950E63C18E740B100898C17 /* DetourLocalBoundary.h */,
+				E950E63D18E740B100898C17 /* DetourObstacleAvoidance.h */,
+				E950E63E18E740B100898C17 /* DetourPathCorridor.h */,
+				E950E63F18E740B100898C17 /* DetourPathQueue.h */,
+				E950E64018E740B100898C17 /* DetourProximityGrid.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		E950E64118E740B100898C17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E950E64218E740B100898C17 /* DetourCrowd.cpp */,
+				E950E64318E740B100898C17 /* DetourLocalBoundary.cpp */,
+				E950E64418E740B100898C17 /* DetourObstacleAvoidance.cpp */,
+				E950E64518E740B100898C17 /* DetourPathCorridor.cpp */,
+				E950E64618E740B100898C17 /* DetourPathQueue.cpp */,
+				E950E64718E740B100898C17 /* DetourProximityGrid.cpp */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E950E64818E740B100898C17 /* DetourTileCache */ = {
+			isa = PBXGroup;
+			children = (
+				E950E64918E740B100898C17 /* CMakeLists.txt */,
+				E950E64A18E740B100898C17 /* Include */,
+				E950E64D18E740B100898C17 /* Source */,
+			);
+			path = DetourTileCache;
+			sourceTree = "<group>";
+		};
+		E950E64A18E740B100898C17 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				E950E64B18E740B100898C17 /* DetourTileCache.h */,
+				E950E64C18E740B100898C17 /* DetourTileCacheBuilder.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		E950E64D18E740B100898C17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E950E64E18E740B100898C17 /* DetourTileCache.cpp */,
+				E950E64F18E740B100898C17 /* DetourTileCacheBuilder.cpp */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E950E65018E740B100898C17 /* Recast */ = {
+			isa = PBXGroup;
+			children = (
+				E950E65118E740B100898C17 /* CMakeLists.txt */,
+				E950E65218E740B100898C17 /* Include */,
+				E950E65618E740B100898C17 /* Source */,
+			);
+			path = Recast;
+			sourceTree = "<group>";
+		};
+		E950E65218E740B100898C17 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				E950E65318E740B100898C17 /* Recast.h */,
+				E950E65418E740B100898C17 /* RecastAlloc.h */,
+				E950E65518E740B100898C17 /* RecastAssert.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		E950E65618E740B100898C17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E950E65718E740B100898C17 /* Recast.cpp */,
+				E950E65818E740B100898C17 /* RecastAlloc.cpp */,
+				E950E65918E740B100898C17 /* RecastArea.cpp */,
+				E950E65A18E740B100898C17 /* RecastContour.cpp */,
+				E950E65B18E740B100898C17 /* RecastFilter.cpp */,
+				E950E65C18E740B100898C17 /* RecastLayers.cpp */,
+				E950E65D18E740B100898C17 /* RecastMesh.cpp */,
+				E950E65E18E740B100898C17 /* RecastMeshDetail.cpp */,
+				E950E65F18E740B100898C17 /* RecastRasterization.cpp */,
+				E950E66018E740B100898C17 /* RecastRegion.cpp */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -139,12 +430,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				D52E57AA18E70BA800D693B8 /* WHSplatter.h in Headers */,
+				E950E66F18E740B100898C17 /* DetourNode.h in Headers */,
+				E950E66918E740B100898C17 /* DetourAlloc.h in Headers */,
+				E950E66E18E740B100898C17 /* DetourNavMeshQuery.h in Headers */,
 				D52E57AE18E7149000D693B8 /* WHDoor.h in Headers */,
 				E9CFA89018E6082E0033E61B /* WHPlayer.h in Headers */,
+				E950E66A18E740B100898C17 /* DetourAssert.h in Headers */,
+				E950E67918E740B100898C17 /* DetourObstacleAvoidance.h in Headers */,
+				E950E68818E740B100898C17 /* RecastAlloc.h in Headers */,
 				E950E5DE18E64BE000898C17 /* WHCritter.h in Headers */,
+				E950E66318E740B100898C17 /* RecastDebugDraw.h in Headers */,
+				E950E68318E740B100898C17 /* DetourTileCache.h in Headers */,
 				D52E57A618E6D40900D693B8 /* WHBalloon.h in Headers */,
+				E950E68718E740B100898C17 /* Recast.h in Headers */,
+				E950E66D18E740B100898C17 /* DetourNavMeshBuilder.h in Headers */,
 				E950E5DA18E636C200898C17 /* WHStaticEntity.h in Headers */,
+				E950E68918E740B100898C17 /* RecastAssert.h in Headers */,
+				E950E67A18E740B100898C17 /* DetourPathCorridor.h in Headers */,
+				E950E67C18E740B100898C17 /* DetourProximityGrid.h in Headers */,
+				E950E67818E740B100898C17 /* DetourLocalBoundary.h in Headers */,
+				E950E66218E740B100898C17 /* DetourDebugDraw.h in Headers */,
+				E950E67718E740B100898C17 /* DetourCrowd.h in Headers */,
+				E950E68418E740B100898C17 /* DetourTileCacheBuilder.h in Headers */,
+				E950E66C18E740B100898C17 /* DetourNavMesh.h in Headers */,
+				E950E66B18E740B100898C17 /* DetourCommon.h in Headers */,
+				E950E66118E740B100898C17 /* DebugDraw.h in Headers */,
+				E950E67B18E740B100898C17 /* DetourPathQueue.h in Headers */,
+				E950E67018E740B100898C17 /* DetourStatus.h in Headers */,
 				D528742C18E5FF3300799F4F /* The White House-Prefix.pch in Headers */,
+				E950E66418E740B100898C17 /* RecastDump.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,15 +531,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E950E69018E740B100898C17 /* RecastMesh.cpp in Sources */,
+				E950E67218E740B100898C17 /* DetourCommon.cpp in Sources */,
+				E950E68B18E740B100898C17 /* RecastAlloc.cpp in Sources */,
+				E950E69318E740B100898C17 /* RecastRegion.cpp in Sources */,
+				E950E68D18E740B100898C17 /* RecastContour.cpp in Sources */,
+				E950E67E18E740B100898C17 /* DetourLocalBoundary.cpp in Sources */,
+				E950E67118E740B100898C17 /* DetourAlloc.cpp in Sources */,
 				E950E5D918E636C200898C17 /* WHStaticEntity.cpp in Sources */,
+				E950E69118E740B100898C17 /* RecastMeshDetail.cpp in Sources */,
 				D528742218E5FF3300799F4F /* WHApplication.cpp in Sources */,
+				E950E67618E740B100898C17 /* DetourNode.cpp in Sources */,
+				E950E68618E740B100898C17 /* DetourTileCacheBuilder.cpp in Sources */,
+				E950E68E18E740B100898C17 /* RecastFilter.cpp in Sources */,
+				E950E68018E740B100898C17 /* DetourPathCorridor.cpp in Sources */,
+				E950E69218E740B100898C17 /* RecastRasterization.cpp in Sources */,
+				E950E67F18E740B100898C17 /* DetourObstacleAvoidance.cpp in Sources */,
 				D52E57AD18E7149000D693B8 /* WHDoor.cpp in Sources */,
+				E950E66718E740B100898C17 /* RecastDebugDraw.cpp in Sources */,
 				E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */,
+				E950E67318E740B100898C17 /* DetourNavMesh.cpp in Sources */,
+				E950E67518E740B100898C17 /* DetourNavMeshQuery.cpp in Sources */,
+				E950E68F18E740B100898C17 /* RecastLayers.cpp in Sources */,
+				E950E67D18E740B100898C17 /* DetourCrowd.cpp in Sources */,
+				E950E68C18E740B100898C17 /* RecastArea.cpp in Sources */,
 				D528742518E5FF3300799F4F /* WHWorld.cpp in Sources */,
 				D52E57A518E6D40900D693B8 /* WHBalloon.cpp in Sources */,
+				E950E68A18E740B100898C17 /* Recast.cpp in Sources */,
+				E950E67418E740B100898C17 /* DetourNavMeshBuilder.cpp in Sources */,
+				E950E68118E740B100898C17 /* DetourPathQueue.cpp in Sources */,
+				E950E66618E740B100898C17 /* DetourDebugDraw.cpp in Sources */,
 				D52E57A918E70BA800D693B8 /* WHSplatter.cpp in Sources */,
 				E950E5DD18E64BE000898C17 /* WHCritter.cpp in Sources */,
+				E950E68218E740B100898C17 /* DetourProximityGrid.cpp in Sources */,
 				D528742918E5FF3300799F4F /* main.cpp in Sources */,
+				E950E68518E740B100898C17 /* DetourTileCache.cpp in Sources */,
+				E950E66818E740B100898C17 /* RecastDump.cpp in Sources */,
+				E950E66518E740B100898C17 /* DebugDraw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
