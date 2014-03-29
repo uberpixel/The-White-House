@@ -72,6 +72,8 @@
 		E950E69118E740B100898C17 /* RecastMeshDetail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65E18E740B100898C17 /* RecastMeshDetail.cpp */; };
 		E950E69218E740B100898C17 /* RecastRasterization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E65F18E740B100898C17 /* RecastRasterization.cpp */; };
 		E950E69318E740B100898C17 /* RecastRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E66018E740B100898C17 /* RecastRegion.cpp */; };
+		E950E69618E7415900898C17 /* WHNavigation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E69418E7415900898C17 /* WHNavigation.cpp */; };
+		E950E69718E7415900898C17 /* WHNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E69518E7415900898C17 /* WHNavigation.h */; };
 		E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */; };
 		E9CFA89018E6082E0033E61B /* WHPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CFA88E18E6082E0033E61B /* WHPlayer.h */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,8 @@
 		E950E65E18E740B100898C17 /* RecastMeshDetail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastMeshDetail.cpp; sourceTree = "<group>"; };
 		E950E65F18E740B100898C17 /* RecastRasterization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastRasterization.cpp; sourceTree = "<group>"; };
 		E950E66018E740B100898C17 /* RecastRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecastRegion.cpp; sourceTree = "<group>"; };
+		E950E69418E7415900898C17 /* WHNavigation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHNavigation.cpp; path = Classes/WHNavigation.cpp; sourceTree = "<group>"; };
+		E950E69518E7415900898C17 /* WHNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHNavigation.h; path = Classes/WHNavigation.h; sourceTree = "<group>"; };
 		E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHPlayer.cpp; path = Classes/WHPlayer.cpp; sourceTree = "<group>"; };
 		E9CFA88E18E6082E0033E61B /* WHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHPlayer.h; path = Classes/WHPlayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +220,8 @@
 				D52E57A818E70BA700D693B8 /* WHSplatter.h */,
 				D52E57AB18E7149000D693B8 /* WHDoor.cpp */,
 				D52E57AC18E7149000D693B8 /* WHDoor.h */,
+				E950E69418E7415900898C17 /* WHNavigation.cpp */,
+				E950E69518E7415900898C17 /* WHNavigation.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				E950E68918E740B100898C17 /* RecastAssert.h in Headers */,
 				E950E67A18E740B100898C17 /* DetourPathCorridor.h in Headers */,
 				E950E67C18E740B100898C17 /* DetourProximityGrid.h in Headers */,
+				E950E69718E7415900898C17 /* WHNavigation.h in Headers */,
 				E950E67818E740B100898C17 /* DetourLocalBoundary.h in Headers */,
 				E950E66218E740B100898C17 /* DetourDebugDraw.h in Headers */,
 				E950E67718E740B100898C17 /* DetourCrowd.h in Headers */,
@@ -545,6 +552,7 @@
 				E950E68618E740B100898C17 /* DetourTileCacheBuilder.cpp in Sources */,
 				E950E68E18E740B100898C17 /* RecastFilter.cpp in Sources */,
 				E950E68018E740B100898C17 /* DetourPathCorridor.cpp in Sources */,
+				E950E69618E7415900898C17 /* WHNavigation.cpp in Sources */,
 				E950E69218E740B100898C17 /* RecastRasterization.cpp in Sources */,
 				E950E67F18E740B100898C17 /* DetourObstacleAvoidance.cpp in Sources */,
 				D52E57AD18E7149000D693B8 /* WHDoor.cpp in Sources */,

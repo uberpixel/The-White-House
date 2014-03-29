@@ -16,6 +16,7 @@
 #include "WHCritter.h"
 #include "WHBalloon.h"
 #include "WHDoor.h"
+#include "WHNavigation.h"
 
 namespace WH
 {
@@ -27,7 +28,6 @@ namespace WH
 		
 		void HandleInputEvent(RN::Event *event);
 		void LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer) override;
-		void Update(float delta) override;
 		
 		void SetLevel(uint32 level);
 		uint32 GetLevel() { return _level; }

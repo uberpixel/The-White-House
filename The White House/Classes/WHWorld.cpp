@@ -18,6 +18,7 @@ namespace WH
 			
 			RN::Event *event = static_cast<RN::Event *>(message);
 			HandleInputEvent(event);
+			
 		}, this);
 		
 		_physicsWorld = new RN::bullet::PhysicsWorld();
@@ -28,6 +29,7 @@ namespace WH
 	World::~World()
 	{
 		_physicsWorld->Release();
+		RN::MessageCenter::GetSharedInstance()->RemoveObserver(this);
 	}
 	
 	void World::HandleInputEvent(RN::Event *event)
@@ -39,6 +41,14 @@ namespace WH
 				case '0':
 				{
 					RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("DPToggle"), nullptr, nullptr);
+					break;
+				}
+					
+				case 'p':
+				{
+					RN::Vector3 position = _player->GetWorldPosition();
+					
+					RNInfo("{%f, %f, %f}", position.x, position.y, position.z);
 					break;
 				}
 					
@@ -58,10 +68,13 @@ namespace WH
 		RN::World::LoadOnThread(thread, deserializer);
 		
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB16F, RN::Camera::Flags::Defaults);
+		_camera->SetClearColor(RN::Color::White());
+		_camera->Release();
+		
 		_player = new Player(_camera);
 		_player->Release();
 		
-		_camera->SetClearColor(RN::Color::White());
+		NavigationManager::GetSharedInstance()->SetNavMesh(nullptr);
 		
 		switch(_level)
 		{
@@ -189,11 +202,7 @@ namespace WH
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
 		
-		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
-			
-			RN::Event *event = static_cast<RN::Event *>(message);
-			HandleInputEvent(event);
-		}, this);
+		NavigationManager::GetSharedInstance()->SetNavMesh(RN::Model::WithFile("Models/levels/level_02_navigation.sgm")->GetMeshAtIndex(0, 0));
 	}
 	
 	void World::LoadLevel3()
@@ -214,12 +223,6 @@ namespace WH
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
-		
-		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
-			
-			RN::Event *event = static_cast<RN::Event *>(message);
-			HandleInputEvent(event);
-		}, this);
 	}
 	
 	void World::LoadLevel4()
@@ -240,16 +243,5 @@ namespace WH
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
-		
-		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
-			
-			RN::Event *event = static_cast<RN::Event *>(message);
-			HandleInputEvent(event);
-		}, this);
-	}
-
-	void World::Update(float delta)
-	{
-		// Do something...
 	}
 }
