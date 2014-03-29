@@ -22,8 +22,25 @@ namespace WH
 		SetWorldScale(scale);
 		
 		SetModel(RN::Model::WithFile("Models/door/door_01.sgm"));
+		
+		RN::SceneNode *collider = new RN::SceneNode();
+		collider->SetWorldPosition(position);
+		collider->SetWorldRotation(rotation);
+		collider->SetWorldScale(scale);
 		RN::bullet::RigidBody *body = new RN::bullet::RigidBody(new RN::bullet::BoxShape(RN::Vector3(0.1f, 2.0f, 2.0f)), 0.0f);
-		AddAttachment(body->Autorelease());
+		collider->AddAttachment(body->Autorelease());
+		collider->Release();
+	}
+	
+	Door::Door(RN::Deserializer *deserializer) :
+		RN::Entity(deserializer)
+	{
+		
+	}
+	
+	void Door::Serialize(RN::Serializer *serializer)
+	{
+		
 	}
 	
 	void Door::Update(float delta)
@@ -38,7 +55,7 @@ namespace WH
 		}
 		else
 		{
-			Rotate(RN::Vector3(delta, 0.0f, 0.0f));
+			Rotate(RN::Vector3(delta*70.0f, 0.0f, 0.0f));
 		}
 	}
 }

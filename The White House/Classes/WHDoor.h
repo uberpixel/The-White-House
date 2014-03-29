@@ -15,6 +15,8 @@ namespace WH
 	{
 	public:
 		Door(RN::Vector3 position, RN::Quaternion rotation, RN::Vector3 scale);
+		Door(RN::Deserializer *deserializer);
+		void Serialize(RN::Serializer *serializer);
 		void Update(float delta);
 		
 	private:

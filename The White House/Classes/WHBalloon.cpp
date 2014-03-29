@@ -21,9 +21,9 @@ namespace WH
 		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
 		rng->Release();
-		GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(_splatterColor);
+		GetModel()->GetMaterialAtIndex(0, 1)->SetDiffuseColor(_splatterColor);
 		
-		SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
+		SetShape(RN::bullet::SphereShape::WithRadius(0.2f));
 	}
 	
 	Balloon::Balloon(RN::Deserializer *deserializer) :
@@ -33,9 +33,9 @@ namespace WH
 		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
 		rng->Release();
-		GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(_splatterColor);
+		GetModel()->GetMaterialAtIndex(0, 1)->SetDiffuseColor(_splatterColor);
 		
-		SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
+		SetShape(RN::bullet::SphereShape::WithRadius(0.2f));
 	}
 	
 	void Balloon::SetShape(RN::bullet::Shape *shape)

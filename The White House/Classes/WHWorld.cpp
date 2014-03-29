@@ -55,13 +55,13 @@ namespace WH
 		_player = new Player(_camera);
 		_player->Release();
 		
-		//_camera->SetFOV(90.0f);
+		_camera->SetClearColor(RN::Color::White());
 		
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_01.sgm"));
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(false);
 		level->Release();
 		
-		Door *door = new Door(RN::Vector3(0.0f, 1.0f, -14.5), RN::Vector3(90.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		Door *door = new Door(RN::Vector3(-0.95f, 1.0f, -14.5), RN::Vector3(90.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
@@ -75,20 +75,65 @@ namespace WH
 		leuchter->Release();
 		
 		Balloon *balloon = new Balloon();
-		balloon->SetPosition(RN::Vector3(0.0f, 2.5f, -4.0f));
+		balloon->SetPosition(RN::Vector3(0.58193, -0.98537, 0.60694));
+		balloon->Translate(leuchter->GetWorldPosition());
 		balloon->Release();
 		
 		balloon = new Balloon();
-		balloon->SetPosition(RN::Vector3(0.0f, 2.5f, -6.0f));
+		balloon->SetPosition(RN::Vector3(0.2197, -0.98537, 0.81709));
+		balloon->Translate(leuchter->GetWorldPosition());
 		balloon->Release();
 		
 		balloon = new Balloon();
-		balloon->SetPosition(RN::Vector3(1.0f, 2.5f, -5.0f));
+		balloon->SetPosition(RN::Vector3(-0.2006, -0.98537, 0.81709));
+		balloon->Translate(leuchter->GetWorldPosition());
 		balloon->Release();
 		
 		balloon = new Balloon();
-		balloon->SetPosition(RN::Vector3(-1.0f, 2.5f, -5.0f));
+		balloon->SetPosition(RN::Vector3(-0.57112, -0.98537, 0.60141));
+		balloon->Translate(leuchter->GetWorldPosition());
 		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(-0.80771, -0.98537, 0.24377));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(-0.7868, -0.98537, -0.18941));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(-0.56559, -0.98537, -0.54334));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(-0.20613, -0.98537, -0.77008));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.22246, -0.98537, -0.76455));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.59299, -0.98537, -0.55993));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.7976, -0.98537, -0.18664));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.79484, -0.98537, 0.23918));
+		balloon->Translate(leuchter->GetWorldPosition());
+		balloon->Release();
+		
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
