@@ -37,7 +37,7 @@ namespace WH
 			{
 				case '0':
 				{
-					//RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("DPToggle"), nullptr, nullptr);
+					RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("DPToggle"), nullptr, nullptr);
 					break;
 				}
 					
@@ -52,7 +52,13 @@ namespace WH
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB888, RN::Camera::Flags::Defaults);
 		_player = new Player(_camera);
 		
-		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/Levels/Level1.dae"));
+		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/Levels/level_01.sgm"));
+		level->Release();
+		
+		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f, 2.0f, -1.0f));
+		light->SetIntensity(1.0f);
+		light->Release();
 	}
 
 	void World::Update(float delta)
