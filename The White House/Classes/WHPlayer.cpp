@@ -39,6 +39,7 @@ namespace WH
 		RN::Vector3 target = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 120.0f));
 		
 		RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
+		hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
 		
 		if(hit.node && hit.node->IsKindOfClass(Critter::MetaClass()))
 		{

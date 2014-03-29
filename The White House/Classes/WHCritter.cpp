@@ -7,6 +7,7 @@
 //
 
 #include "WHCritter.h"
+#include "RBPhysicsWorld.h"
 
 namespace WH
 {
@@ -54,6 +55,30 @@ namespace WH
 	
 	void Critter::Splatter()
 	{
-		RNDebug("Splatter");
+		Retain();
+		RemoveFromWorld();
+		
+		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
+ 
+		for(int i = 0; i < 20; i++)
+		{
+			RN::Vector3 from = GetWorldPosition();
+			RN::Vector3 dir = -rng->RandomVector3Range(RN::Vector3(-1.0f), RN::Vector3(1.0f));
+			dir.Normalize();
+			RN::Vector3 to = from + dir * 100.0f;
+			RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(from, to);
+			if(hit.distance > 0)
+			{
+				RN::Decal *decal = new RN::Decal(RN::Texture::WithFile("Textures/spatter/3.png"));
+				decal->SetPosition(hit.position);
+				decal->SetScale(RN::Vector3(rng->RandomFloatRange(1.0f, 3.0f)));
+				decal->SetRotation(RN::Quaternion::WithLookAt(-dir));
+				decal->GetMaterial()->SetDiffuseColor(_splatterColor);
+				decal->Release();
+			}
+		}
+		
+		rng->Release();
+		Release();
 	}
 }
