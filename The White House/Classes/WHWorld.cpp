@@ -49,8 +49,11 @@ namespace WH
 	
 	void World::LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer)
 	{
+		RN::World::LoadOnThread(thread, deserializer);
+		
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB888, RN::Camera::Flags::Defaults);
 		_player = new Player(_camera);
+		_player->Release();
 		
 		//_camera->SetFOV(90.0f);
 		

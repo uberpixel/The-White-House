@@ -20,6 +20,14 @@ namespace WH
 	{
 		SetTitle("The White House");
 
+		// Pre-load the splatter textures
+		RN::Texture::WithFile("Textures/spatter/1.png")->Retain();
+		RN::Texture::WithFile("Textures/spatter/2.png")->Retain();
+		RN::Texture::WithFile("Textures/spatter/3.png")->Retain();
+		RN::Texture::WithFile("Textures/spatter/4.png")->Retain();
+		RN::Texture::WithFile("Textures/spatter/5.png")->Retain();
+		RN::Texture::WithFile("Textures/spatter/6.png")->Retain();
+		
 		RN::World *world = new World();
 		RN::WorldCoordinator::GetSharedInstance()->LoadWorld(world->Autorelease());
 		

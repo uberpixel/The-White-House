@@ -10,6 +10,7 @@
 #include "WHCritter.h"
 #include "WHBalloon.h"
 #include "WHDefinition.h"
+#include "WHSplatter.h"
 #include "RBPhysicsWorld.h"
 
 namespace WH
@@ -19,6 +20,7 @@ namespace WH
 	Player::Player(RN::Camera *camera) :
 		_camera(camera),
 		_mouseDown(false),
+		_diedBrutally(false),
 		_attackCooldown(0.0f)
 	{
 		SetTag(kWHPlayerTag);
@@ -88,9 +90,9 @@ namespace WH
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
 			_controller->Jump();
 		
-		if(input->IsMousePressed(0) && _attackCooldown < RN::k::EpsilonFloat)
+		if(input->IsMousePressed(0))
 		{
-			if(!_mouseDown)
+			if(_attackCooldown < RN::k::EpsilonFloat && !_diedBrutally && !_mouseDown)
 			{
 				Attack();
 				_mouseDown = true;
@@ -99,6 +101,23 @@ namespace WH
 		else
 		{
 			_mouseDown = false;
+		}
+		
+		RN::Vector3 position = GetWorldPosition();
+		if(position.y <= -0.75f && !_diedBrutally)
+		{
+			_diedBrutally = true;
+			
+			
+			RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNSTR("/Sounds/BrutalDeath%i.ogg", _random.RandomInt32Range(1, 4)), nullptr);
+			
+			Splatter splatter(position, RN::Color(0.629f, 0.007f, 0.049f));
+			splatter.Activate(130);
+			
+			RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(2500), []() {
+				RN::World::GetActiveWorld()->DropSceneNodes();
+				RN::World::GetActiveWorld()->LoadOnThread(RN::Thread::GetCurrentThread(), nullptr);
+			}, false);
 		}
 	}
 }
