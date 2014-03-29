@@ -13,6 +13,8 @@
 		D528742C18E5FF3300799F4F /* The White House-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = D528742B18E5FF3300799F4F /* The White House-Prefix.pch */; };
 		D52E57A518E6D40900D693B8 /* WHBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D52E57A318E6D40900D693B8 /* WHBalloon.cpp */; };
 		D52E57A618E6D40900D693B8 /* WHBalloon.h in Headers */ = {isa = PBXBuildFile; fileRef = D52E57A418E6D40900D693B8 /* WHBalloon.h */; };
+		D52E57A918E70BA800D693B8 /* WHSplatter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D52E57A718E70BA700D693B8 /* WHSplatter.cpp */; };
+		D52E57AA18E70BA800D693B8 /* WHSplatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D52E57A818E70BA700D693B8 /* WHSplatter.h */; };
 		E950E5D918E636C200898C17 /* WHStaticEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E5D718E636C200898C17 /* WHStaticEntity.cpp */; };
 		E950E5DA18E636C200898C17 /* WHStaticEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E5D818E636C200898C17 /* WHStaticEntity.h */; };
 		E950E5DD18E64BE000898C17 /* WHCritter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E5DB18E64BE000898C17 /* WHCritter.cpp */; };
@@ -34,6 +36,8 @@
 		D528742F18E5FF3300799F4F /* settings.json */ = {isa = PBXFileReference; lastKnownFileType = folder; name = settings.json; sourceTree = "<group>"; };
 		D52E57A318E6D40900D693B8 /* WHBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHBalloon.cpp; path = Classes/WHBalloon.cpp; sourceTree = "<group>"; };
 		D52E57A418E6D40900D693B8 /* WHBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHBalloon.h; path = Classes/WHBalloon.h; sourceTree = "<group>"; };
+		D52E57A718E70BA700D693B8 /* WHSplatter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHSplatter.cpp; path = Classes/WHSplatter.cpp; sourceTree = "<group>"; };
+		D52E57A818E70BA700D693B8 /* WHSplatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHSplatter.h; path = Classes/WHSplatter.h; sourceTree = "<group>"; };
 		E950E5D718E636C200898C17 /* WHStaticEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHStaticEntity.cpp; path = Classes/WHStaticEntity.cpp; sourceTree = "<group>"; };
 		E950E5D818E636C200898C17 /* WHStaticEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHStaticEntity.h; path = Classes/WHStaticEntity.h; sourceTree = "<group>"; };
 		E950E5DB18E64BE000898C17 /* WHCritter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHCritter.cpp; path = Classes/WHCritter.cpp; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				D52E57A318E6D40900D693B8 /* WHBalloon.cpp */,
 				D52E57A418E6D40900D693B8 /* WHBalloon.h */,
 				E950E61818E6FB4900898C17 /* WHDefinition.h */,
+				D52E57A718E70BA700D693B8 /* WHSplatter.cpp */,
+				D52E57A818E70BA700D693B8 /* WHSplatter.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52E57AA18E70BA800D693B8 /* WHSplatter.h in Headers */,
 				E9CFA89018E6082E0033E61B /* WHPlayer.h in Headers */,
 				E950E5DE18E64BE000898C17 /* WHCritter.h in Headers */,
 				D52E57A618E6D40900D693B8 /* WHBalloon.h in Headers */,
@@ -208,6 +215,7 @@
 				E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */,
 				D528742518E5FF3300799F4F /* WHWorld.cpp in Sources */,
 				D52E57A518E6D40900D693B8 /* WHBalloon.cpp in Sources */,
+				D52E57A918E70BA800D693B8 /* WHSplatter.cpp in Sources */,
 				E950E5DD18E64BE000898C17 /* WHCritter.cpp in Sources */,
 				D528742918E5FF3300799F4F /* main.cpp in Sources */,
 			);

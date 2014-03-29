@@ -59,13 +59,7 @@ namespace WH
 		level->Release();
 		
 		RN::Entity *door = new RN::Entity(RN::Model::WithFile("Models/door/door_01.sgm"));
-		door->SetPosition(RN::Vector3(0.0f, 0.65, -15.77));
-		door->SetRotation(RN::Vector3(90.0f, 0.0f, 0.0f));
-		door->SetScale(RN::Vector3(0.75f));
-		door->Release();
-		
-		door = new RN::Entity(RN::Model::WithFile("Models/door/door_frame_01.sgm"));
-		door->SetPosition(RN::Vector3(0.0f, 0.65, -15.77));
+		door->SetPosition(RN::Vector3(0.0f, 1.0f, -14.5));
 		door->SetRotation(RN::Vector3(90.0f, 0.0f, 0.0f));
 		door->SetScale(RN::Vector3(0.75f));
 		door->Release();
