@@ -18,7 +18,8 @@ namespace WH
 	
 	Player::Player(RN::Camera *camera) :
 		_camera(camera),
-		_mouseDown(false)
+		_mouseDown(false),
+		_attackCooldown(0.0f)
 	{
 		_controller = new RN::bullet::KinematicController(RN::bullet::CapsuleShape::WithRadius(0.5f, 1.8f), 0.7f);
 		_controller->SetJumpSpeed(3.4f);
@@ -56,6 +57,8 @@ namespace WH
 			Balloon *balloon = static_cast<Balloon *>(hit.node);
 			balloon->Splatter();
 		}
+		
+		_attackCooldown = 1.1f;
 	}
 	
 	void Player::Update(float delta)
@@ -78,11 +81,12 @@ namespace WH
 		direction *= 0.1f;
 		
 		_controller->SetWalkDirection(direction);
+		_attackCooldown = std::max(0.0f, _attackCooldown - delta);
 		
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
 			_controller->Jump();
 		
-		if(input->IsMousePressed(0))
+		if(input->IsMousePressed(0) && _attackCooldown < RN::k::EpsilonFloat)
 		{
 			if(!_mouseDown)
 			{
