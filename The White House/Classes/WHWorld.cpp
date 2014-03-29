@@ -12,7 +12,7 @@ namespace WH
 {
 	World::World() :
 		RN::World("GenericSceneManager"),
-		_level(2)
+		_level(1)
 	{
 		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
 			
@@ -71,6 +71,14 @@ namespace WH
 				
 			case 2:
 				LoadLevel2();
+				break;
+				
+			case 3:
+				LoadLevel3();
+				break;
+				
+			case 4:
+				LoadLevel4();
 				break;
 				
 			default:
@@ -169,6 +177,58 @@ namespace WH
 		level->Release();
 		
 		Door *door = new Door(RN::Vector3(5.41865f, 1.0f, -28.85), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		door->Release();
+		
+		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetIntensity(1.0f);
+		light->SetRange(20.0f);
+		light->Release();
+		
+		
+		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
+		critter->Release();
+		
+		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
+			
+			RN::Event *event = static_cast<RN::Event *>(message);
+			HandleInputEvent(event);
+		}, this);
+	}
+	
+	void World::LoadLevel3()
+	{
+		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_03.sgm"));
+		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
+		level->Release();
+		
+		Door *door = new Door(RN::Vector3(7.01063f, 0.32514f, 40.52977f), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		door->Release();
+		
+		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetIntensity(1.0f);
+		light->SetRange(20.0f);
+		light->Release();
+		
+		
+		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
+		critter->Release();
+		
+		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
+			
+			RN::Event *event = static_cast<RN::Event *>(message);
+			HandleInputEvent(event);
+		}, this);
+	}
+	
+	void World::LoadLevel4()
+	{
+		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_04.sgm"));
+		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
+		level->Release();
+		
+		Door *door = new Door(RN::Vector3(-20.5f, 0.5f, -20.0f), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
