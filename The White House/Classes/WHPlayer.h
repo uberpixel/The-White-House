@@ -12,6 +12,8 @@
 #include <Rayne/Rayne.h>
 #include "RBKinematicController.h"
 
+#define kWHPlayerTag 1337
+
 namespace WH
 {
 	class Player : public RN::Entity
