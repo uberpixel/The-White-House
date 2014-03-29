@@ -36,6 +36,7 @@ namespace WH
 		
 		_crosshairWidget = new RN::UI::Widget(RN::UI::Widget::Style::Borderless);
 		_crosshairWidget->GetContentView()->AddSubview(_crosshair);
+		_crosshairWidget->SetCanBecomeKeyWidget(false);
 		
 		_crosshairWidget->Open();
 		
