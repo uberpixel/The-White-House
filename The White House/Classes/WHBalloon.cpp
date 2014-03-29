@@ -15,7 +15,7 @@ namespace WH
 	
 	Balloon::Balloon()
 	{
-		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm"));
+		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm")->Copy());
 		
 		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
@@ -28,7 +28,7 @@ namespace WH
 	Balloon::Balloon(RN::Deserializer *deserializer) :
 		RN::Entity(deserializer)
 	{
-		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm"));
+		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm")->Copy());
 		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
 		rng->Release();
