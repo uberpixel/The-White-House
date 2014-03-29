@@ -38,6 +38,7 @@
 		E950E5D818E636C200898C17 /* WHStaticEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHStaticEntity.h; path = Classes/WHStaticEntity.h; sourceTree = "<group>"; };
 		E950E5DB18E64BE000898C17 /* WHCritter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHCritter.cpp; path = Classes/WHCritter.cpp; sourceTree = "<group>"; };
 		E950E5DC18E64BE000898C17 /* WHCritter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCritter.h; path = Classes/WHCritter.h; sourceTree = "<group>"; };
+		E950E61818E6FB4900898C17 /* WHDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHDefinition.h; path = Classes/WHDefinition.h; sourceTree = "<group>"; };
 		E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHPlayer.cpp; path = Classes/WHPlayer.cpp; sourceTree = "<group>"; };
 		E9CFA88E18E6082E0033E61B /* WHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHPlayer.h; path = Classes/WHPlayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +95,7 @@
 				E950E5DC18E64BE000898C17 /* WHCritter.h */,
 				D52E57A318E6D40900D693B8 /* WHBalloon.cpp */,
 				D52E57A418E6D40900D693B8 /* WHBalloon.h */,
+				E950E61818E6FB4900898C17 /* WHDefinition.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

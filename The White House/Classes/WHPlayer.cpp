@@ -9,6 +9,7 @@
 #include "WHPlayer.h"
 #include "WHCritter.h"
 #include "WHBalloon.h"
+#include "WHDefinition.h"
 #include "RBPhysicsWorld.h"
 
 namespace WH
@@ -36,6 +37,8 @@ namespace WH
 	
 	void Player::Attack()
 	{
+		RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/shotty.ogg"), nullptr);
+		
 		RN::Vector3 source = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 1.8f));
 		RN::Vector3 target = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 120.0f));
 		
@@ -68,10 +71,8 @@ namespace WH
 		rotationY += _camera->GetRotation().GetEulerAngle();
 		rotationY.y = std::max(-80.0f, std::min(65.0f, rotationY.y));
 		
-		_camera->SetRotation(rotationY);
-		
-		
 		Rotate(rotationX);
+		_camera->SetRotation(rotationY);
 		
 		direction = GetRotation().GetRotatedVector(direction);
 		direction *= 0.1f;
