@@ -179,7 +179,7 @@ namespace WH
 		balloon->Release();
 		
 		
-		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
+		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f, 0.0f, -10.5));
 		critter->Release();
 	}
 	
