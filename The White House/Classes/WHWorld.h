@@ -15,6 +15,7 @@
 #include "WHPlayer.h"
 #include "WHCritter.h"
 #include "WHBalloon.h"
+#include "WHDoor.h"
 
 namespace WH
 {

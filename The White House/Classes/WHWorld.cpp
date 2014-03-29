@@ -58,10 +58,7 @@ namespace WH
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(false);
 		level->Release();
 		
-		RN::Entity *door = new RN::Entity(RN::Model::WithFile("Models/door/door_01.sgm"));
-		door->SetPosition(RN::Vector3(0.0f, 1.0f, -14.5));
-		door->SetRotation(RN::Vector3(90.0f, 0.0f, 0.0f));
-		door->SetScale(RN::Vector3(0.75f));
+		Door *door = new Door(RN::Vector3(0.0f, 1.0f, -14.5), RN::Vector3(90.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
 		door->Release();
 		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
