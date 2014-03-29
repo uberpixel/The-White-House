@@ -30,6 +30,8 @@ namespace WH
 		void Update(float delta) override;
 		
 	private:
+		void LoadLevel1();
+		
 		RN::Camera *_camera;
 		RN::bullet::PhysicsWorld *_physicsWorld;
 		

@@ -57,6 +57,12 @@ namespace WH
 		
 		_camera->SetClearColor(RN::Color::White());
 		
+		
+		LoadLevel1();
+	}
+	
+	void World::LoadLevel1()
+	{
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_01.sgm"));
 		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(false);
 		level->Release();

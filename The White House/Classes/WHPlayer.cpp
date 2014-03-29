@@ -45,22 +45,27 @@ namespace WH
 		RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/shotty.ogg"), nullptr);
 		
 		RN::Vector3 source = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 1.8f));
-		RN::Vector3 target = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 120.0f));
+		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		
-		RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
-		hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
-		
-		if(hit.node && hit.node->IsKindOfClass(Critter::MetaClass()))
+		for(int i = 0; i < 5; i++)
 		{
-			Critter *critter = static_cast<Critter *>(hit.node);
-			critter->Splatter();
+			RN::Vector3 target = _camera->ToWorld(RN::Vector3(rng->RandomFloatRange(-0.1f, 0.1f), rng->RandomFloatRange(-0.1f, 0.1f), 120.0f));
+			RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
+			
+			if(hit.node && hit.node->IsKindOfClass(Critter::MetaClass()))
+			{
+				Critter *critter = static_cast<Critter *>(hit.node);
+				critter->Splatter();
+			}
+			
+			if(hit.node && hit.node->IsKindOfClass(Balloon::MetaClass()))
+			{
+				Balloon *balloon = static_cast<Balloon *>(hit.node);
+				balloon->Splatter();
+			}
 		}
 		
-		if(hit.node && hit.node->IsKindOfClass(Balloon::MetaClass()))
-		{
-			Balloon *balloon = static_cast<Balloon *>(hit.node);
-			balloon->Splatter();
-		}
+		rng->Release();
 		
 		_attackCooldown = 1.1f;
 	}
