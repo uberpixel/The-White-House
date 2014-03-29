@@ -32,6 +32,10 @@ namespace WH
 		
 		bool _diedBrutally;
 		bool _mouseDown;
+		bool _noseBroken;
+		bool _noseTouch;
+		
+		float _stepCooldown;
 		float _attackCooldown;
 		
 		RN::Random::MersenneTwister _random;

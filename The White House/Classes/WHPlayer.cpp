@@ -21,7 +21,10 @@ namespace WH
 		_camera(camera),
 		_mouseDown(false),
 		_diedBrutally(false),
-		_attackCooldown(0.0f)
+		_noseBroken(false),
+		_noseTouch(false),
+		_attackCooldown(0.0f),
+		_stepCooldown(0.0f)
 	{
 		SetTag(kWHPlayerTag);
 		
@@ -43,29 +46,28 @@ namespace WH
 	void Player::Attack()
 	{
 		RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/shotty.ogg"), nullptr);
-		
 		RN::Vector3 source = _camera->ToWorld(RN::Vector3(0.0f, 0.0f, 1.8f));
-		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 		
 		for(int i = 0; i < 5; i++)
 		{
-			RN::Vector3 target = _camera->ToWorld(RN::Vector3(rng->RandomFloatRange(-0.1f, 0.1f), rng->RandomFloatRange(-0.1f, 0.1f), 120.0f));
+			RN::Vector3 target = _camera->ToWorld(RN::Vector3(_random.RandomFloatRange(-0.1f, 0.1f), _random.RandomFloatRange(-0.1f, 0.1f), 120.0f));
 			RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
 			
-			if(hit.node && hit.node->IsKindOfClass(Critter::MetaClass()))
+			if(hit.node)
 			{
-				Critter *critter = static_cast<Critter *>(hit.node);
-				critter->Splatter();
-			}
-			
-			if(hit.node && hit.node->IsKindOfClass(Balloon::MetaClass()))
-			{
-				Balloon *balloon = static_cast<Balloon *>(hit.node);
-				balloon->Splatter();
+				if(hit.node->IsKindOfClass(Critter::MetaClass()))
+				{
+					Critter *critter = static_cast<Critter *>(hit.node);
+					critter->Splatter();
+				}
+				
+				if(hit.node->IsKindOfClass(Balloon::MetaClass()))
+				{
+					Balloon *balloon = static_cast<Balloon *>(hit.node);
+					balloon->Splatter();
+				}
 			}
 		}
-		
-		rng->Release();
 		
 		_attackCooldown = 1.1f;
 	}
@@ -89,6 +91,17 @@ namespace WH
 		direction = GetRotation().GetRotatedVector(direction);
 		direction *= 0.1f;
 		
+		_stepCooldown -= delta;
+		
+		if(direction.GetLength() > RN::k::EpsilonFloat)
+		{
+			if(_stepCooldown <= 0.0f)
+			{
+				RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNSTR("/Sounds/Schritte%i.ogg", _random.RandomInt32Range(1, 14)), nullptr);
+				_stepCooldown = 0.41f;
+			}
+		}
+		
 		_controller->SetWalkDirection(direction);
 		_attackCooldown = std::max(0.0f, _attackCooldown - delta);
 		
@@ -106,6 +119,37 @@ namespace WH
 		else
 		{
 			_mouseDown = false;
+		}
+		
+		if(!_diedBrutally)
+		{
+			RN::Vector3 source = _camera->ToWorld(RN::Vector3(0.0f, -0.3f, 0.8f));
+			RN::Vector3 target = _camera->ToWorld(RN::Vector3(0.0f, -0.3f, 0.9f));
+			
+			RN::Hit hit = RN::bullet::PhysicsWorld::GetSharedInstance()->CastRay(source, target);
+			
+			if(hit.node)
+			{
+				if(!_noseTouch)
+				{
+					RN::Decal *decal = new RN::Decal(RN::Texture::WithFile("Textures/spatter/Nose.png"));
+					decal->SetPosition(hit.position);
+					decal->SetRotation(RN::Quaternion::WithLookAt(-target));
+					decal->SetScale(RN::Vector3(0.7f));
+					decal->GetMaterial()->SetDiffuseColor(RN::Color(0.629f, 0.007f, 0.049f));
+					decal->Release();
+					
+					if(_noseBroken)
+						decal->SetScale(RN::Vector3(0.3f));
+					else
+						RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/Nase.ogg"), nullptr);
+					
+					_noseBroken = true;
+					_noseTouch  = true;
+				}
+			}
+			else
+				_noseTouch = false;
 		}
 		
 		RN::Vector3 position = GetWorldPosition();
