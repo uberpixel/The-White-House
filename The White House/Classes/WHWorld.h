@@ -14,6 +14,7 @@
 #include "WHStaticEntity.h"
 #include "WHPlayer.h"
 #include "WHCritter.h"
+#include "WHBalloon.h"
 
 namespace WH
 {

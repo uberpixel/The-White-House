@@ -8,6 +8,7 @@
 
 #include "WHPlayer.h"
 #include "WHCritter.h"
+#include "WHBalloon.h"
 #include "RBPhysicsWorld.h"
 
 namespace WH
@@ -45,6 +46,12 @@ namespace WH
 		{
 			Critter *critter = static_cast<Critter *>(hit.node);
 			critter->Splatter();
+		}
+		
+		if(hit.node && hit.node->IsKindOfClass(Balloon::MetaClass()))
+		{
+			Balloon *balloon = static_cast<Balloon *>(hit.node);
+			balloon->Splatter();
 		}
 	}
 	

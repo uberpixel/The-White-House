@@ -55,18 +55,43 @@ namespace WH
 		//_camera->SetFOV(90.0f);
 		
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_01.sgm"));
+		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(false);
 		level->Release();
 		
+		RN::Entity *door = new RN::Entity(RN::Model::WithFile("Models/door/door_01.sgm"));
+		door->Release();
+		
+		door = new RN::Entity(RN::Model::WithFile("Models/door/door_frame_01.sgm"));
+		door->Release();
+		
 		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
-		light->SetPosition(RN::Vector3(0.0f, 2.0f, -1.0f));
+		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
 		light->SetIntensity(1.0f);
+		light->SetRange(20.0f);
 		light->Release();
 		
 		RN::Entity *leuchter = new RN::Entity(RN::Model::WithFile("Models/kronleuchter/kronleuchter_01.sgm"));
-		leuchter->SetPosition(RN::Vector3(0.0f, 3.0f, -1.0f));
+		leuchter->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
 		leuchter->Release();
 		
+		Balloon *balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.0f, 2.5f, -4.0f));
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(0.0f, 2.5f, -6.0f));
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(1.0f, 2.5f, -5.0f));
+		balloon->Release();
+		
+		balloon = new Balloon();
+		balloon->SetPosition(RN::Vector3(-1.0f, 2.5f, -5.0f));
+		balloon->Release();
+		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
+		critter->Release();
 	}
 
 	void World::Update(float delta)

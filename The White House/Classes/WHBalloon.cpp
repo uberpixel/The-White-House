@@ -1,59 +1,49 @@
 //
-//  WHCritter.cpp
+//  WHBalloon.cpp
 //  The White House
 //
-//  Created by Sidney Just on 29/03/14.
+//  Created by Nils Daumann on 29.03.14.
 //  Copyright (c) 2014 Überpixel. All rights reserved.
 //
 
-#include "WHCritter.h"
+#include "WHBalloon.h"
 #include "RBPhysicsWorld.h"
 
 namespace WH
 {
-	RNDefineMeta(Critter, RN::Entity)
+	RNDefineMeta(Balloon, RN::Entity)
 	
-	Critter::Critter(Type type, const RN::Vector3 &position)
+	Balloon::Balloon()
 	{
-		SetPosition(position);
-		SetType(type);
-	}
-	
-	void Critter::SetType(Type type)
-	{
-		switch(type)
-		{
-			case Type::Apple:
-			{
-				_splatterColor = RN::Color(0.849f, 0.009f, 0.066f);
-				
-				SetModel(RN::Model::WithFile("Models/critter/apple_01.sgm"));
-				SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
-				break;
-			}
-		}
-	}
-	
-	void Critter::SetModel(RN::Model *model)
-	{
-		RN::Entity::SetModel(model);
-		SetScale(RN::Vector3(0.4f));
+		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm"));
 		
-		size_t count = model->GetMeshCount(0);
-		for(size_t i = 0;  i < count; i ++)
-		{
-			RN::Material *material = model->GetMaterialAtIndex(0, i);
-			material->SetCullMode(RN::Material::CullMode::None);
-		}
+		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
+		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
+		rng->Release();
+		GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(_splatterColor);
+		
+		SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
 	}
 	
-	void Critter::SetShape(RN::bullet::Shape *shape)
+	Balloon::Balloon(RN::Deserializer *deserializer) :
+		RN::Entity(deserializer)
 	{
-		RN::bullet::RigidBody *body = new RN::bullet::RigidBody(shape, 1.0f);
+		SetModel(RN::Model::WithFile("Models/balloon/balloon_01.sgm"));
+		RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
+		_splatterColor = RN::Color(rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f), rng->RandomFloatRange(0.0f, 1.0f));
+		rng->Release();
+		GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(_splatterColor);
+		
+		SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
+	}
+	
+	void Balloon::SetShape(RN::bullet::Shape *shape)
+	{
+		RN::bullet::RigidBody *body = new RN::bullet::RigidBody(shape, 0.0f);
 		AddAttachment(body->Autorelease());
 	}
 	
-	void Critter::Splatter()
+	void Balloon::Splatter()
 	{
 		Retain();
 		RemoveFromWorld();
