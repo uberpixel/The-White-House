@@ -29,11 +29,17 @@ namespace WH
 		void LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer) override;
 		void Update(float delta) override;
 		
+		void SetLevel(uint32 level);
+		uint32 GetLevel() { return _level; }
+		
 	private:
 		void LoadLevel1();
+		void LoadLevel2();
 		
 		RN::Camera *_camera;
 		RN::bullet::PhysicsWorld *_physicsWorld;
+		
+		uint32 _level;
 		
 		Player *_player;
 	};

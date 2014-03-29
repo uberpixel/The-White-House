@@ -9,13 +9,14 @@
 #include "WHDoor.h"
 #include "WHPlayer.h"
 #include "RBRigidBody.h"
+#include "WHWorld.h"
 
 namespace WH
 {
 	RNDefineMeta(Door, RN::Entity)
 	
 	Door::Door(RN::Vector3 position, RN::Quaternion rotation, RN::Vector3 scale) :
-		_active(false)
+		_active(false), _counter(0.0f)
 	{
 		SetWorldPosition(position);
 		SetWorldRotation(rotation);
@@ -45,7 +46,7 @@ namespace WH
 	
 	void Door::Update(float delta)
 	{
-		if(!_active)
+		if(!_active && _counter < 1.0f)
 		{
 			Player *player = RN::World::GetActiveWorld()->GetSceneNodeWithTag<Player>(kWHPlayerTag);
 			if(player->GetWorldPosition().GetDistance(GetWorldPosition()-GetForward()) < 1.0f)
@@ -56,6 +57,18 @@ namespace WH
 		else
 		{
 			Rotate(RN::Vector3(delta*70.0f, 0.0f, 0.0f));
+			_counter += delta;
+		}
+		
+		if(_counter > 1.0f && _active)
+		{
+			_active = false;
+			RN::Kernel::GetSharedInstance()->ScheduleFunction([](){
+				World *world = static_cast<World*>(RN::World::GetActiveWorld());
+				world->SetLevel(world->GetLevel() + 1);
+				world->DropSceneNodes();
+				world->LoadOnThread(RN::Thread::GetCurrentThread(), nullptr);
+			});
 		}
 	}
 }

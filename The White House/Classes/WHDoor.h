@@ -21,6 +21,7 @@ namespace WH
 		
 	private:
 		bool _active;
+		float _counter;
 		
 		RNDeclareMeta(Door)
 	};

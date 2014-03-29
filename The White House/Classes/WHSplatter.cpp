@@ -43,7 +43,7 @@ namespace WH
 			
 			RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 			
-			for(int i = 0; i < 20; i++)
+			for(int i = 0; i < 10; i++)
 			{
 				RN::Vector3 dir = -rng->RandomVector3Range(RN::Vector3(-1.0f), RN::Vector3(1.0f));
 				dir.Normalize();
@@ -59,7 +59,7 @@ namespace WH
 					
 					RN::Decal *decal = new RN::Decal(RN::Texture::WithFile(filename));
 					decal->SetPosition(hit.position);
-					decal->SetScale(RN::Vector3(rng->RandomFloatRange(1.0f, 3.0f)));
+					decal->SetScale(RN::Vector3(rng->RandomFloatRange(1.0f, 1.5f)));
 					decal->SetRotation(RN::Quaternion::WithLookAt(-dir));
 					decal->GetMaterial()->SetDiffuseColor(color);
 					decal->Release();

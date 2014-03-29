@@ -11,7 +11,8 @@
 namespace WH
 {
 	World::World() :
-		RN::World("GenericSceneManager")
+		RN::World("GenericSceneManager"),
+		_level(2)
 	{
 		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
 			
@@ -47,18 +48,34 @@ namespace WH
 		}
 	}
 	
+	void World::SetLevel(uint32 level)
+	{
+		_level = level;
+	}
+	
 	void World::LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer)
 	{
 		RN::World::LoadOnThread(thread, deserializer);
 		
-		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB888, RN::Camera::Flags::Defaults);
+		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB16F, RN::Camera::Flags::Defaults);
 		_player = new Player(_camera);
 		_player->Release();
 		
 		_camera->SetClearColor(RN::Color::White());
 		
-		
-		LoadLevel1();
+		switch(_level)
+		{
+			case 1:
+				LoadLevel1();
+				break;
+				
+			case 2:
+				LoadLevel2();
+				break;
+				
+			default:
+				break;
+		}
 	}
 	
 	void World::LoadLevel1()
@@ -143,6 +160,32 @@ namespace WH
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
+	}
+	
+	void World::LoadLevel2()
+	{
+		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_02.sgm"));
+		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
+		level->Release();
+		
+		Door *door = new Door(RN::Vector3(5.41865f, 1.0f, -28.85), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
+		door->Release();
+		
+		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f, 3.0f, -5.0f));
+		light->SetIntensity(1.0f);
+		light->SetRange(20.0f);
+		light->Release();
+		
+		
+		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
+		critter->Release();
+		
+		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
+			
+			RN::Event *event = static_cast<RN::Event *>(message);
+			HandleInputEvent(event);
+		}, this);
 	}
 
 	void World::Update(float delta)
