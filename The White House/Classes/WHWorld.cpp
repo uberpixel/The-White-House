@@ -13,7 +13,7 @@ namespace WH
 {
 	World::World() :
 		RN::World("GenericSceneManager"),
-		_level(2),
+		_level(1),
 		_decoyTimer(nullptr),
 		_decoy(nullptr)
 	{
@@ -106,6 +106,9 @@ namespace WH
 	void World::SetSpawning(bool enabled)
 	{
 		RN::Array *spawners = GetSceneNodesWithTag<SpawnPoint>(kWHSpawnPointTag);
+		if(!spawners)
+			return;
+		
 		spawners->Enumerate<SpawnPoint>([&](SpawnPoint *point, size_t index, bool &stop) {
 			point->SetSpawningEnabled(enabled);
 		});

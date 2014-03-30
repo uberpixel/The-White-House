@@ -37,6 +37,7 @@ namespace WH
 		bool _mouseDown;
 		bool _noseBroken;
 		bool _noseTouch;
+		bool _virginObstschale;
 		
 		float _stepCooldown;
 		float _attackCooldown;

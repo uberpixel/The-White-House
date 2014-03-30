@@ -26,6 +26,7 @@ namespace WH
 		_diedBrutally(false),
 		_noseBroken(false),
 		_noseTouch(false),
+		_virginObstschale(true),
 		_attackCooldown(0.0f),
 		_stepCooldown(0.0f),
 		_pushBack(0.0f)
@@ -108,6 +109,9 @@ namespace WH
 	void Player::Update(float delta)
 	{
 		RN::Entity::Update(delta);
+		if(_diedBrutally)
+			return;
+		
 		RN::Input *input = RN::Input::GetSharedInstance();
 		
 		RN::Vector3 direction(input->IsKeyPressed('d')-input->IsKeyPressed('a'), 0.0f, input->IsKeyPressed('s')-input->IsKeyPressed('w'));
@@ -153,7 +157,10 @@ namespace WH
 		}
 		
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
+		{
+			RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/Jump.ogg"), nullptr);
 			_controller->Jump();
+		}
 		
 		if(input->IsMousePressed(0) || input->IsMousePressed(1))
 		{
@@ -170,6 +177,13 @@ namespace WH
 			{
 				if(!_diedBrutally && !_mouseDown)
 				{
+					float chance = _random.RandomFloat();
+					if(chance >= 0.9 || _virginObstschale)
+					{
+						RN::MessageCenter::GetSharedInstance()->PostMessage(kOAPlaySoundMessage, RNCSTR("/Sounds/Obstschale.ogg"), nullptr);
+						_virginObstschale = false;
+					}
+					
 					Decoy *decoy = new Decoy(_camera->GetWorldPosition(), _camera->GetWorldRotation());
 					
 					static_cast<World *>(GetWorld())->TrackDecoy(decoy);
