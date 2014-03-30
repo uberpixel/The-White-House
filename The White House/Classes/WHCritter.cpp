@@ -37,6 +37,8 @@ namespace WH
 	Critter::Critter(Type type, const RN::Vector3 &position)
 	{
 		SetPosition(position);
+		SetRenderGroup(31);
+		
 		SetType(type);
 		
 		NavigationAgent *agent = new NavigationAgent();

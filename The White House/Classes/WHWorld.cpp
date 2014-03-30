@@ -131,6 +131,7 @@ namespace WH
 		
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB16F, RN::Camera::Flags::Defaults);
 		_camera->SetClearColor(RN::Color::White());
+		_camera->SetRenderGroups(_camera->GetRenderGroups() | (1 << 31));
 		_camera->Release();
 		
 		_player = new Player(_camera);
