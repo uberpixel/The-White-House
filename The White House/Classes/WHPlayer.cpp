@@ -40,6 +40,24 @@ namespace WH
 		_shotgun = new RN::Entity(RN::Model::WithFile("Models/shotgun/shotgun.sgm"));
 		AddChild(_shotgun);
 		_shotgun->SetPosition(RN::Vector3(0.3f, 1.4f, 0.2f));
+		
+		_muzzle1 = new RN::Entity(RN::Model::WithFile("Models/muzzleflash/muzzleflash.sgm"));
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(false);
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetDepthWrite(false);
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetBlending(true);
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetBlendMode(RN::Material::BlendMode::SourceAlpha, RN::Material::BlendMode::OneMinusSourceAlpha);
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(RN::Color(2.0f, 2.0f, 2.0f, 0.5f));
+		_shotgun->AddChild(_muzzle1);
+		_muzzle1->SetPosition(RN::Vector3(0.05f, 0.0f, -1.2f));
+		_muzzle1->SetScale(RN::Vector3(0.4f));
+		
+		_muzzle2 = new RN::Entity(RN::Model::WithFile("Models/muzzleflash/muzzleflash.sgm"));
+		_shotgun->AddChild(_muzzle2);
+		_muzzle2->SetPosition(RN::Vector3(-0.075f, 0.0f, -1.2f));
+		_muzzle2->SetScale(RN::Vector3(0.4f));
+		
+		_muzzle1->SetFlags(_muzzle1->GetFlags() | RN::SceneNode::Flags::Hidden | RN::SceneNode::Flags::DrawLate);
+		_muzzle2->SetFlags(_muzzle2->GetFlags() | RN::SceneNode::Flags::Hidden | RN::SceneNode::Flags::DrawLate);
 	}
 	
 	Player::~Player()
@@ -74,6 +92,9 @@ namespace WH
 			}
 		}
 		
+		_muzzle1->SetFlags(_muzzle1->GetFlags() & ~RN::SceneNode::Flags::Hidden);
+		_muzzle2->SetFlags(_muzzle2->GetFlags() & ~RN::SceneNode::Flags::Hidden);
+		_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(RN::Color(2.0f, 2.0f, 2.0f, 0.5f));
 		_pushBack = 1.0f;
 		
 		_attackCooldown = 1.1f;
@@ -115,6 +136,16 @@ namespace WH
 		_pushBack = false;
 		
 		_attackCooldown = std::max(0.0f, _attackCooldown - delta);
+		
+		if(_attackCooldown < 0.9f)
+		{
+			_muzzle1->SetFlags(_muzzle1->GetFlags() | RN::SceneNode::Flags::Hidden);
+			_muzzle2->SetFlags(_muzzle2->GetFlags() | RN::SceneNode::Flags::Hidden);
+		}
+		else
+		{
+			_muzzle1->GetModel()->GetMaterialAtIndex(0, 0)->SetDiffuseColor(RN::Color(2.0f, 2.0f, 2.0f, (_attackCooldown - 0.9f) * 2.5));
+		}
 		
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
 			_controller->Jump();

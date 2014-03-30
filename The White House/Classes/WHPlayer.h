@@ -29,6 +29,8 @@ namespace WH
 		
 		RN::Camera *_camera;
 		RN::Entity *_shotgun;
+		RN::Entity *_muzzle1;
+		RN::Entity *_muzzle2;
 		RN::bullet::KinematicController *_controller;
 		
 		bool _diedBrutally;
