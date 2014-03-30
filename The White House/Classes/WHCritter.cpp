@@ -88,6 +88,18 @@ namespace WH
 				break;
 			}
 				
+				
+			case Type::Cucumber:
+			{
+				_splatterColor = RN::Color(0.082f, 0.657f, 0.000f);
+				
+				SetModel(RN::Model::WithFile("Models/critter/cucumber_01.sgm"));
+				SetShape(RN::bullet::SphereShape::WithRadius(0.4f));
+				
+				SetScale(RN::Vector3(0.3));
+				break;
+			}
+				
 			default:
 				break;
 		}

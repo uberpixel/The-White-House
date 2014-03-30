@@ -21,6 +21,7 @@ namespace WH
 		{
 			Apple,
 			Banana,
+			Cucumber,
 			
 			__CritterTypeMax
 		};
