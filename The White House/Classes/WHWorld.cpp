@@ -158,7 +158,9 @@ namespace WH
 			case 4:
 				LoadLevel4();
 				break;
-				
+			case 5:
+				LoadLevel5();
+				break;
 			default:
 				break;
 		}
@@ -374,5 +376,17 @@ namespace WH
 		
 		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
 		critter->Release();
+	}
+	
+	void World::LoadLevel5()
+	{
+		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_05.sgm"));
+		level->GetModel()->GetMaterialAtIndex(0,0)->SetLighting(true);
+		level->Release();
+		
+		RN::Light *light = new RN::Light(RN::Light::Type::PointLight);
+		light->SetPosition(RN::Vector3(0.0f));
+		
+		_player->setDyingHeight(-10.0f);
 	}
 }

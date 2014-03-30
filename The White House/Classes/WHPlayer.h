@@ -23,6 +23,7 @@ namespace WH
 		~Player() override;
 		
 		void Update(float delta) override;
+		void setDyingHeight (float dyingHeight);
 		
 	private:
 		void Attack();
@@ -42,6 +43,7 @@ namespace WH
 		float _stepCooldown;
 		float _attackCooldown;
 		float _pushBack;
+		float _dyingHeight;
 		
 		RN::Random::MersenneTwister _random;
 		
