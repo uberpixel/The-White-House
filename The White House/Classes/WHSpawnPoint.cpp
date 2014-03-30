@@ -37,7 +37,7 @@ namespace WH
 		
 		if(_spawnCritter && _critterCoolDown <= RN::k::EpsilonFloat)
 		{
-			if(Player::GetSharedInstance()->GetWorldPosition().GetDistance(GetWorldPosition()) < 15.0 && Critter::CanSpawnCritter())
+			if(Player::GetSharedInstance()->GetWorldPosition().GetDistance(GetWorldPosition()) < 25.0 && Critter::CanSpawnCritter())
 			{
 				Critter::Type type = static_cast<Critter::Type>(_random.RandomInt32Range(0, static_cast<int32>(Critter::Type::__CritterTypeMax)));
 				

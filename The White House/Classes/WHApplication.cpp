@@ -19,6 +19,9 @@ namespace WH
 	void Application::Start()
 	{
 		SetTitle("The White(st) House (you know)");
+		
+		const RN::Array *configs = RN::Window::GetSharedInstance()->GetMainScreen()->GetConfigurations();
+		RN::Window::GetSharedInstance()->ActivateConfiguration(configs->GetObjectAtIndex<RN::WindowConfiguration>(configs->GetCount() - 2), 0);
 
 		// Pre-load the splatter textures
 		RN::Texture::WithFile("Textures/spatter/1.png")->Retain();
@@ -42,6 +45,7 @@ namespace WH
 		_crosshairWidget->Open();
 		
 		UpdateCrosshair();
+		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNUIServerDidResizeMessage, std::bind(&Application::UpdateCrosshair, this), nullptr);
 	}
 	
 	void Application::WillExit()

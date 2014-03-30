@@ -321,6 +321,12 @@ namespace WH
 		point = new SpawnPoint(RN::Vector3(25.208176, 0.006232, 20.674175));
 		point->Release();
 		
+		point = new SpawnPoint(RN::Vector3(8.490561, 0.006244, 2.903359));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(32.292274, -0.014635, 9.084530));
+		point->Release();
+		
 		point = new SpawnPoint(RN::Vector3(14.571447, 0.006226, 23.914522));
 		point->Release();
 		
