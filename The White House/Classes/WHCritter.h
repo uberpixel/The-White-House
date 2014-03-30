@@ -12,6 +12,8 @@
 #include <Rayne/Rayne.h>
 #include "RBRigidBody.h"
 
+#define kWHCritterTag 0xC8177E8
+
 namespace WH
 {
 	class Critter : public RN::Entity
@@ -29,7 +31,11 @@ namespace WH
 		Critter(Type type, const RN::Vector3 &position);
 		~Critter();
 		
+		void Update(float delta) override;
+		
 		void Splatter();
+		void SetTarget(const RN::Vector3 &target);
+		void SetFixed(bool fixed);
 		
 		static bool CanSpawnCritter();
 		
@@ -39,6 +45,8 @@ namespace WH
 		void SetShape(RN::bullet::Shape *shape);
 		
 		RN::Color _splatterColor;
+		RN::Vector3 _target;
+		bool _isFixedAndCantHaveChildren;
 		
 		RNDeclareMeta(Critter)
 	};

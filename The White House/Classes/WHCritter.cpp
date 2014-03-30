@@ -34,10 +34,12 @@ namespace WH
 	
 	
 	
-	Critter::Critter(Type type, const RN::Vector3 &position)
+	Critter::Critter(Type type, const RN::Vector3 &position) :
+		_isFixedAndCantHaveChildren(false)
 	{
 		SetPosition(position);
 		SetRenderGroup(31);
+		SetTag(kWHCritterTag);
 		
 		SetType(type);
 		
@@ -50,6 +52,13 @@ namespace WH
 		RN::MessageCenter::GetSharedInstance()->AddObserver(kWHWorldSpawningStoppedMessage, [this](RN::Message *message) {
 			RemoveFromWorld();
 		}, this);
+		
+		RN::MessageCenter::GetSharedInstance()->AddObserver(RNCSTR("fuckoff"), [this](RN::Message *message) {
+			
+			RN::Value *value = static_cast<RN::Value *>(message->GetObject());
+			SetTarget(value->GetValue<RN::Vector3>());
+			
+		}, this);
 	}
 	
 	Critter::~Critter()
@@ -59,6 +68,7 @@ namespace WH
 		_pestLock.Unlock();
 		
 		RN::MessageCenter::GetSharedInstance()->RemoveObserver(this, kWHWorldSpawningStoppedMessage);
+		RN::MessageCenter::GetSharedInstance()->RemoveObserver(this, RNCSTR("fuckoff"));
 	}
 	
 	
@@ -117,10 +127,34 @@ namespace WH
 		}
 	}
 	
+	void Critter::SetFixed(bool fixed)
+	{
+		_isFixedAndCantHaveChildren = fixed;
+	}
+	
 	void Critter::SetShape(RN::bullet::Shape *shape)
 	{
 		RN::bullet::RigidBody *body = new RN::bullet::RigidBody(shape, 0.0f);
 		AddAttachment(body->Autorelease());
+	}
+	
+	void Critter::SetTarget(const RN::Vector3 &target)
+	{
+		_target = target;
+	}
+	
+	void Critter::Update(float delta)
+	{
+		RN::Entity::Update(delta);
+		
+		if(_isFixedAndCantHaveChildren)
+			return;
+		
+		if(GetWorldPosition().GetDistance(_target) >= 1.5f)
+		{
+			LookAt(_target);
+			TranslateLocal(RN::Vector3(0.0f, 0.0f, -6.0f) * delta);
+		}
 	}
 	
 	void Critter::Splatter()

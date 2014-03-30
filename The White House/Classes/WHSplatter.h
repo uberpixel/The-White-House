@@ -17,7 +17,7 @@ namespace WH
 	{
 	public:
 		Splatter(const RN::Vector3 &position, const RN::Color &color);
-		void Activate(size_t fuse = 300);
+		void Activate(size_t fuse = 300, uint32 count = 10, float maxsize = 3.0f);
 		
 	private:
 		RN::Vector3 _position;

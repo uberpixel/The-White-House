@@ -73,7 +73,7 @@ namespace WH
 	{
 		FileIO()
 		{
-			_file = fopen("/Users/Sidney/Desktop/Mesh.obj", "wb");
+			_file = fopen("/Users/Nils/Desktop/Mesh.obj", "wb");
 		}
 		
 		virtual ~FileIO()

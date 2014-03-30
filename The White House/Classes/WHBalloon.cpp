@@ -50,7 +50,7 @@ namespace WH
 		RemoveFromWorld();
 		
 		class Splatter splatter(GetWorldPosition(), _splatterColor);
-		splatter.Activate();
+		splatter.Activate(300, 10, 2.0f);
 		
 		Release();
 	}

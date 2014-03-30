@@ -17,7 +17,7 @@ namespace WH
 		
 	}
 	
-	void Splatter::Activate(size_t fuse)
+	void Splatter::Activate(size_t fuse, uint32 count, float maxsize)
 	{
 		RN::GenericParticleEmitter *emitter = new RN::GenericParticleEmitter();
 		emitter->GetMaterial()->AddTexture(RN::Texture::WithFile("Textures/spatter/3.png"));
@@ -37,13 +37,14 @@ namespace WH
 		
 		RN::Vector3 from = _position;
 		RN::Color color = _color;
+		color.a = 0.9f;
 		
-		RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(fuse), [from, color, emitter]{
+		RN::Timer::ScheduledTimerWithDuration(std::chrono::milliseconds(fuse), [from, color, emitter, count, maxsize]{
 			emitter->Release();
 			
 			RN::RandomNumberGenerator *rng = new RN::RandomNumberGenerator(RN::RandomNumberGenerator::Type::MersenneTwister);
 			
-			for(int i = 0; i < 10; i++)
+			for(uint32 i = 0; i < count; i++)
 			{
 				RN::Vector3 dir = -rng->RandomVector3Range(RN::Vector3(-1.0f), RN::Vector3(1.0f));
 				dir.Normalize();
@@ -59,9 +60,10 @@ namespace WH
 					
 					RN::Decal *decal = new RN::Decal(RN::Texture::WithFile(filename));
 					decal->SetPosition(hit.position);
-					decal->SetScale(RN::Vector3(rng->RandomFloatRange(1.0f, 1.5f)));
+					decal->SetScale(RN::Vector3(rng->RandomFloatRange(1.0f, maxsize)));
 					decal->SetRotation(RN::Quaternion::WithLookAt(-dir));
 					decal->GetMaterial()->SetDiffuseColor(color);
+					decal->SetAngle(360.0f);
 					decal->Release();
 				}
 			}

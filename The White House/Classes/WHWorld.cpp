@@ -69,9 +69,10 @@ namespace WH
 	void World::Update(float delta)
 	{
 		if(_decoy)
-			NavigationManager::GetSharedInstance()->SetTarget(_decoy->GetWorldPosition());
-		
-		NavigationManager::GetSharedInstance()->Update(delta);
+		{
+			RN::Vector3 target = _decoy->GetWorldPosition();
+			RN::MessageCenter::GetSharedInstance()->PostMessage(RNCSTR("fuckoff"), RN::Value::WithVector3(target), nullptr);
+		}
 	}
 	
 	void World::TrackDecoy(Decoy *decoy)
@@ -248,6 +249,7 @@ namespace WH
 		if(Critter::CanSpawnCritter())
 		{
 			Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f, 0.0f, -10.5));
+			critter->SetFixed(true);
 			critter->Release();
 		}
 	}
@@ -266,9 +268,6 @@ namespace WH
 		light->SetRange(25.0f);
 		light->Release();
 		
-		
-		RN::Model *model = RN::Model::WithFile("Models/levels/level_02_navmesh.sgm");
-		NavigationManager::GetSharedInstance()->SetNavMesh(model->GetMeshAtIndex(0, 0));
 		
 		SpawnPoint *point;
 		
