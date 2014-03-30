@@ -313,8 +313,22 @@ namespace WH
 		light->Release();
 		
 		
-		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
-		critter->Release();
+		SpawnPoint *point;
+		
+		point = new SpawnPoint(RN::Vector3(15.765354, 0.006236, 5.233837));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(25.208176, 0.006232, 20.674175));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(14.571447, 0.006226, 23.914522));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(4.715867, 0.006213, 30.811022));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-4.085171, 0.006244, 38.585899));
+		point->Release();
 	}
 	
 	void World::LoadLevel4()
@@ -374,8 +388,37 @@ namespace WH
 		light->SetRange(25.0f);
 		light->Release();
 		
-		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
-		critter->Release();
+		SpawnPoint *point;
+		
+		point = new SpawnPoint(RN::Vector3(-12.758311, 0.047873, -0.950561));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-18.231022, 0.047873, 0.374814));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(4.241591, 0.006198, 1.289377));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-37.768707, 0.047848, 7.032582));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-27.825808, 0.047873, 24.195520));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-13.372080, 0.047873, 37.381832));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(1.284830, 0.047874, 21.855516));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-18.686232, 0.047873, 5.904874));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-22.239698, 0.047862, 44.610992));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-28.667234, 0.047874, 26.162754));
+		point->Release();
 	}
 	
 	void World::LoadLevel5()
