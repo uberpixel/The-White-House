@@ -48,8 +48,9 @@ namespace WH
 	{
 		if(!_active && _counter < 1.0f)
 		{
-			Player *player = RN::World::GetActiveWorld()->GetSceneNodeWithTag<Player>(kWHPlayerTag);
-			if(player->GetWorldPosition().GetDistance(GetWorldPosition()-GetForward()) < 1.0f)
+			Player *player = Player::GetSharedInstance();
+			
+			if(player->GetWorldPosition().GetDistance(GetWorldPosition() - GetForward()) <= 1.0f)
 			{
 				_active = true;
 			}
