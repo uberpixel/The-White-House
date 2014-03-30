@@ -18,7 +18,7 @@ namespace WH
 		{
 			RN::Material *material = model->GetMaterialAtIndex(0, i);
 			
-			material->SetLighting(true);
+			material->SetLighting(false);
 			material->SetCullMode(RN::Material::CullMode::None);
 		}
 		
