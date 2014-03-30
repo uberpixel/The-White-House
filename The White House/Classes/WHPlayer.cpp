@@ -29,7 +29,8 @@ namespace WH
 		_virginObstschale(true),
 		_attackCooldown(0.0f),
 		_stepCooldown(0.0f),
-		_pushBack(0.0f)
+		_pushBack(0.0f),
+		_dyingHeight(-0.75f)
 	{
 		MakeShared();
 		SetTag(kWHPlayerTag);
@@ -231,7 +232,7 @@ namespace WH
 		}
 		
 		RN::Vector3 position = GetWorldPosition();
-		if(position.y <= -0.75f && !_diedBrutally)
+		if(position.y <= _dyingHeight && !_diedBrutally)
 		{
 			_diedBrutally = true;
 			
@@ -246,5 +247,10 @@ namespace WH
 				RN::World::GetActiveWorld()->LoadOnThread(RN::Thread::GetCurrentThread(), nullptr);
 			}, false);
 		}
+	}
+	
+	void Player::setDyingHeight (float dyingHeight)
+	{
+		 _dyingHeight = dyingHeight;
 	}
 }
