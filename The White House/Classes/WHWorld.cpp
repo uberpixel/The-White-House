@@ -340,7 +340,6 @@ namespace WH
 	void World::LoadLevel4()
 	{
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_04.sgm"));
-		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
 		level->Release();
 		
 		Door *door = new Door(RN::Vector3(-20.67f, 0.45f, 21.26f), RN::Vector3(180.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
