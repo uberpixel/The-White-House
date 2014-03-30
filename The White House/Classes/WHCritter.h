@@ -19,12 +19,18 @@ namespace WH
 	public:
 		enum class Type
 		{
-			Apple
+			Apple,
+			Banana,
+			
+			__CritterTypeMax
 		};
 		
 		Critter(Type type, const RN::Vector3 &position);
+		~Critter();
 		
 		void Splatter();
+		
+		static bool CanSpawnCritter();
 		
 	private:
 		void SetType(Type type);

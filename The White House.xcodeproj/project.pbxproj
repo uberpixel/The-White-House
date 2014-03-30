@@ -17,6 +17,8 @@
 		D52E57AA18E70BA800D693B8 /* WHSplatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D52E57A818E70BA700D693B8 /* WHSplatter.h */; };
 		D52E57AD18E7149000D693B8 /* WHDoor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D52E57AB18E7149000D693B8 /* WHDoor.cpp */; };
 		D52E57AE18E7149000D693B8 /* WHDoor.h in Headers */ = {isa = PBXBuildFile; fileRef = D52E57AC18E7149000D693B8 /* WHDoor.h */; };
+		E9505DB418E78FE80010DC55 /* WHDecoy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9505DB218E78FE80010DC55 /* WHDecoy.cpp */; };
+		E9505DB518E78FE80010DC55 /* WHDecoy.h in Headers */ = {isa = PBXBuildFile; fileRef = E9505DB318E78FE80010DC55 /* WHDecoy.h */; };
 		E950E5D918E636C200898C17 /* WHStaticEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E5D718E636C200898C17 /* WHStaticEntity.cpp */; };
 		E950E5DA18E636C200898C17 /* WHStaticEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E5D818E636C200898C17 /* WHStaticEntity.h */; };
 		E950E5DD18E64BE000898C17 /* WHCritter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E950E5DB18E64BE000898C17 /* WHCritter.cpp */; };
@@ -76,6 +78,8 @@
 		E950E69718E7415900898C17 /* WHNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = E950E69518E7415900898C17 /* WHNavigation.h */; };
 		E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */; };
 		E9CFA89018E6082E0033E61B /* WHPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CFA88E18E6082E0033E61B /* WHPlayer.h */; };
+		E9F8831218E7897D0020AFF2 /* WHSpawnPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F8831018E7897D0020AFF2 /* WHSpawnPoint.cpp */; };
+		E9F8831318E7897D0020AFF2 /* WHSpawnPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E9F8831118E7897D0020AFF2 /* WHSpawnPoint.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +99,8 @@
 		D52E57A818E70BA700D693B8 /* WHSplatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHSplatter.h; path = Classes/WHSplatter.h; sourceTree = "<group>"; };
 		D52E57AB18E7149000D693B8 /* WHDoor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHDoor.cpp; path = Classes/WHDoor.cpp; sourceTree = "<group>"; };
 		D52E57AC18E7149000D693B8 /* WHDoor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHDoor.h; path = Classes/WHDoor.h; sourceTree = "<group>"; };
+		E9505DB218E78FE80010DC55 /* WHDecoy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHDecoy.cpp; path = Classes/WHDecoy.cpp; sourceTree = "<group>"; };
+		E9505DB318E78FE80010DC55 /* WHDecoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHDecoy.h; path = Classes/WHDecoy.h; sourceTree = "<group>"; };
 		E950E5D718E636C200898C17 /* WHStaticEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHStaticEntity.cpp; path = Classes/WHStaticEntity.cpp; sourceTree = "<group>"; };
 		E950E5D818E636C200898C17 /* WHStaticEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHStaticEntity.h; path = Classes/WHStaticEntity.h; sourceTree = "<group>"; };
 		E950E5DB18E64BE000898C17 /* WHCritter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHCritter.cpp; path = Classes/WHCritter.cpp; sourceTree = "<group>"; };
@@ -160,6 +166,8 @@
 		E950E69518E7415900898C17 /* WHNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHNavigation.h; path = Classes/WHNavigation.h; sourceTree = "<group>"; };
 		E9CFA88D18E6082E0033E61B /* WHPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHPlayer.cpp; path = Classes/WHPlayer.cpp; sourceTree = "<group>"; };
 		E9CFA88E18E6082E0033E61B /* WHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHPlayer.h; path = Classes/WHPlayer.h; sourceTree = "<group>"; };
+		E9F8831018E7897D0020AFF2 /* WHSpawnPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WHSpawnPoint.cpp; path = Classes/WHSpawnPoint.cpp; sourceTree = "<group>"; };
+		E9F8831118E7897D0020AFF2 /* WHSpawnPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHSpawnPoint.h; path = Classes/WHSpawnPoint.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +200,8 @@
 		D528741F18E5FF3300799F4F /* The White House */ = {
 			isa = PBXGroup;
 			children = (
-				D528742D18E5FF3300799F4F /* Resources */,
 				D528742018E5FF3300799F4F /* Classes */,
+				D528742D18E5FF3300799F4F /* Resources */,
 				D528742718E5FF3300799F4F /* Supporting files */,
 				E950E61918E740B100898C17 /* Vendor */,
 			);
@@ -222,6 +230,10 @@
 				D52E57AC18E7149000D693B8 /* WHDoor.h */,
 				E950E69418E7415900898C17 /* WHNavigation.cpp */,
 				E950E69518E7415900898C17 /* WHNavigation.h */,
+				E9F8831018E7897D0020AFF2 /* WHSpawnPoint.cpp */,
+				E9F8831118E7897D0020AFF2 /* WHSpawnPoint.h */,
+				E9505DB218E78FE80010DC55 /* WHDecoy.cpp */,
+				E9505DB318E78FE80010DC55 /* WHDecoy.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -457,8 +469,10 @@
 				E950E69718E7415900898C17 /* WHNavigation.h in Headers */,
 				E950E67818E740B100898C17 /* DetourLocalBoundary.h in Headers */,
 				E950E66218E740B100898C17 /* DetourDebugDraw.h in Headers */,
+				E9F8831318E7897D0020AFF2 /* WHSpawnPoint.h in Headers */,
 				E950E67718E740B100898C17 /* DetourCrowd.h in Headers */,
 				E950E68418E740B100898C17 /* DetourTileCacheBuilder.h in Headers */,
+				E9505DB518E78FE80010DC55 /* WHDecoy.h in Headers */,
 				E950E66C18E740B100898C17 /* DetourNavMesh.h in Headers */,
 				E950E66B18E740B100898C17 /* DetourCommon.h in Headers */,
 				E950E66118E740B100898C17 /* DebugDraw.h in Headers */,
@@ -553,8 +567,10 @@
 				E950E68E18E740B100898C17 /* RecastFilter.cpp in Sources */,
 				E950E68018E740B100898C17 /* DetourPathCorridor.cpp in Sources */,
 				E950E69618E7415900898C17 /* WHNavigation.cpp in Sources */,
+				E9505DB418E78FE80010DC55 /* WHDecoy.cpp in Sources */,
 				E950E69218E740B100898C17 /* RecastRasterization.cpp in Sources */,
 				E950E67F18E740B100898C17 /* DetourObstacleAvoidance.cpp in Sources */,
+				E9F8831218E7897D0020AFF2 /* WHSpawnPoint.cpp in Sources */,
 				D52E57AD18E7149000D693B8 /* WHDoor.cpp in Sources */,
 				E950E66718E740B100898C17 /* RecastDebugDraw.cpp in Sources */,
 				E9CFA88F18E6082E0033E61B /* WHPlayer.cpp in Sources */,

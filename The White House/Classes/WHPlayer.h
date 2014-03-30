@@ -16,7 +16,7 @@
 
 namespace WH
 {
-	class Player : public RN::Entity
+	class Player : public RN::Entity, public RN::INonConstructingSingleton<Player>
 	{
 	public:
 		Player(RN::Camera *camera);
@@ -45,6 +45,7 @@ namespace WH
 		RN::Random::MersenneTwister _random;
 		
 		RNDeclareMeta(Player)
+		RNDeclareSingleton(Player)
 	};
 }
 

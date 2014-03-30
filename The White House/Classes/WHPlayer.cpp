@@ -11,11 +11,14 @@
 #include "WHBalloon.h"
 #include "WHDefinition.h"
 #include "WHSplatter.h"
+#include "WHDecoy.h"
+#include "WHWorld.h"
 #include "RBPhysicsWorld.h"
 
 namespace WH
 {
 	RNDefineMeta(Player, RN::Entity)
+	RNDefineSingleton(Player)
 	
 	Player::Player(RN::Camera *camera) :
 		_camera(camera),
@@ -27,6 +30,7 @@ namespace WH
 		_stepCooldown(0.0f),
 		_pushBack(0.0f)
 	{
+		MakeShared();
 		SetTag(kWHPlayerTag);
 		
 		_controller = new RN::bullet::KinematicController(RN::bullet::CapsuleShape::WithRadius(0.5f, 1.8f), 0.7f);
@@ -62,6 +66,7 @@ namespace WH
 	
 	Player::~Player()
 	{
+		ResignShared();
 		_controller->Release();
 	}
 	
@@ -150,12 +155,29 @@ namespace WH
 		if(input->IsKeyPressed(' ') && _controller->IsOnGround())
 			_controller->Jump();
 		
-		if(input->IsMousePressed(0))
+		if(input->IsMousePressed(0) || input->IsMousePressed(1))
 		{
-			if(_attackCooldown < RN::k::EpsilonFloat && !_diedBrutally && !_mouseDown)
+			if(input->IsMousePressed(0))
 			{
-				Attack();
-				_mouseDown = true;
+				if(_attackCooldown < RN::k::EpsilonFloat && !_diedBrutally && !_mouseDown)
+				{
+					Attack();
+					_mouseDown = true;
+				}
+			}
+			
+			if(input->IsMousePressed(1))
+			{
+				if(!_diedBrutally && !_mouseDown)
+				{
+					Decoy *decoy = new Decoy(_camera->GetWorldPosition(), _camera->GetWorldRotation());
+					
+					static_cast<World *>(GetWorld())->TrackDecoy(decoy);
+					
+					decoy->Release();
+					
+					_mouseDown = true;
+				}
 			}
 		}
 		else

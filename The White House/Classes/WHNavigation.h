@@ -32,6 +32,9 @@ namespace WH
 		void Disable();
 		
 		void SetStandStill(bool standStill);
+		void GetData(RN::Vector3 &position, RN::Vector3 &target);
+		
+		void Update(float delta) override;
 		
 	private:
 		bool _standStill;
@@ -41,6 +44,8 @@ namespace WH
 	class NavigationManager : public RN::ISingleton<NavigationManager>
 	{
 	public:
+		friend class NavigationAgent;
+		
 		NavigationManager();
 		~NavigationManager();
 		

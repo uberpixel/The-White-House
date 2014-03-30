@@ -7,12 +7,15 @@
 //
 
 #include "WHWorld.h"
+#include "WHSpawnPoint.h"
 
 namespace WH
 {
 	World::World() :
 		RN::World("GenericSceneManager"),
-		_level(1)
+		_level(2),
+		_decoyTimer(nullptr),
+		_decoy(nullptr)
 	{
 		RN::MessageCenter::GetSharedInstance()->AddObserver(kRNInputEventMessage, [&](RN::Message *message) {
 			
@@ -63,8 +66,64 @@ namespace WH
 		_level = level;
 	}
 	
+	void World::Update(float delta)
+	{
+		if(_decoy)
+			NavigationManager::GetSharedInstance()->SetTarget(_decoy->GetWorldPosition());
+		
+		NavigationManager::GetSharedInstance()->Update(delta);
+	}
+	
+	void World::TrackDecoy(Decoy *decoy)
+	{
+		if(_decoyTimer)
+		{
+			_decoy->RemoveFromWorld();
+			
+			_decoyTimer->Invalidate();
+			_decoyTimer = nullptr;
+			
+			SetSpawning(false);
+		}
+		
+		_decoy = decoy;
+		if(_decoy)
+		{
+			SetSpawning(true);
+			
+			_decoyTimer = RN::Timer::ScheduledTimerWithDuration(std::chrono::seconds(8), [this]() {
+				
+				_decoyTimer = nullptr;
+				_decoy->RemoveFromWorld();
+				_decoy = nullptr;
+				
+				SetSpawning(false);
+				
+			}, false);
+		}
+	}
+	
+	void World::SetSpawning(bool enabled)
+	{
+		RN::Array *spawners = GetSceneNodesWithTag<SpawnPoint>(kWHSpawnPointTag);
+		spawners->Enumerate<SpawnPoint>([&](SpawnPoint *point, size_t index, bool &stop) {
+			point->SetSpawningEnabled(enabled);
+		});
+		
+		if(!enabled)
+			RN::MessageCenter::GetSharedInstance()->PostMessage(kWHWorldSpawningStoppedMessage, nullptr, nullptr);
+	}
+	
 	void World::LoadOnThread(RN::Thread *thread, RN::Deserializer *deserializer)
 	{
+		if(_decoyTimer)
+		{
+			_decoyTimer->Invalidate();
+			_decoyTimer = nullptr;
+			
+			_decoy = nullptr;
+		}
+		
 		RN::World::LoadOnThread(thread, deserializer);
 		
 		_camera = new RN::Camera(RN::Vector2(), RN::Texture::Format::RGB16F, RN::Camera::Flags::Defaults);
@@ -97,6 +156,8 @@ namespace WH
 			default:
 				break;
 		}
+		
+		RN::Kernel::GetSharedInstance()->DidSleepForSignificantTime();
 	}
 	
 	void World::LoadLevel1()
@@ -179,14 +240,16 @@ namespace WH
 		balloon->Release();
 		
 		
-		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f, 0.0f, -10.5));
-		critter->Release();
+		if(Critter::CanSpawnCritter())
+		{
+			Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f, 0.0f, -10.5));
+			critter->Release();
+		}
 	}
 	
 	void World::LoadLevel2()
 	{
 		StaticEntity *level = new StaticEntity(RN::Model::WithFile("Models/levels/level_02.sgm"));
-		level->GetModel()->GetMaterialAtIndex(0, 0)->SetLighting(true);
 		level->Release();
 		
 		Door *door = new Door(RN::Vector3(5.41865f, 1.0f, -28.85), RN::Vector3(0.0f, 0.0f, 0.0f), RN::Vector3(0.75f));
@@ -199,10 +262,22 @@ namespace WH
 		light->Release();
 		
 		
-		Critter *critter = new Critter(Critter::Type::Apple, RN::Vector3(0.0f));
-		critter->Release();
+		RN::Model *model = RN::Model::WithFile("Models/levels/level_02_navmesh.sgm");
+		NavigationManager::GetSharedInstance()->SetNavMesh(model->GetMeshAtIndex(0, 0));
 		
-		NavigationManager::GetSharedInstance()->SetNavMesh(RN::Model::WithFile("Models/levels/level_02_navigation.sgm")->GetMeshAtIndex(0, 0));
+		SpawnPoint *point;
+		
+		point = new SpawnPoint(RN::Vector3(-17.027275, 1.205256, -9.622817));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(4.309178, 0.635908, -0.264022));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(0.960735, 0.618220, -19.294271));
+		point->Release();
+		
+		point = new SpawnPoint(RN::Vector3(-11.842712, 1.181179, -18.227867));
+		point->Release();
 	}
 	
 	void World::LoadLevel3()

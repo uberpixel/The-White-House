@@ -10,9 +10,85 @@
 #include "DetourNavMeshBuilder.h"
 #include "RecastAlloc.h"
 #include "Recast.h"
+#include "RecastDump.h"
+
+#include "DebugDraw.h"
+#include "RecastDebugDraw.h"
 
 namespace WH
 {
+	/*struct WHDebugDraw
+	{
+		virtual void depthMask(bool state)
+		{}
+		
+		virtual void texture(bool state)
+		{}
+		
+		/// Begin drawing primitives.
+		///  @param prim [in] primitive type to draw, one of rcDebugDrawPrimitives.
+		///  @param size [in] size of a primitive, applies to point size and line width only.
+		virtual void begin(duDebugDrawPrimitives prim, float size = 1.0f)
+		{
+			
+		}
+		
+		/// Submit a vertex
+		///  @param pos [in] position of the verts.
+		///  @param color [in] color of the verts.
+		virtual void vertex(const float* pos, unsigned int color)
+		{
+			RN::Debug::AddLinePoint(RN::Vector3(pos[0], pos[1], pos[2]), RN::Color(color, color, color, 1.0f));
+		}
+		
+		/// Submit a vertex
+		///  @param x,y,z [in] position of the verts.
+		///  @param color [in] color of the verts.
+		virtual void vertex(const float x, const float y, const float z, unsigned int color)
+		{
+			RN::Debug::AddLinePoint(RN::Vector3(x, y, z), RN::Color(color, color, color, 1.0f));
+		}
+		
+		/// Submit a vertex
+		///  @param pos [in] position of the verts.
+		///  @param color [in] color of the verts.
+		virtual void vertex(const float* pos, unsigned int color, const float* uv)
+		{
+			RN::Debug::AddLinePoint(RN::Vector3(x, y, z), RN::Color(color, color, color, 1.0f));
+		}
+		
+		/// Submit a vertex
+		///  @param x,y,z [in] position of the verts.
+		///  @param color [in] color of the verts.
+		virtual void vertex(const float x, const float y, const float z, unsigned int color, const float u, const float v)
+		{
+			RN::Debug::AddLinePoint(RN::Vector3(x, y, z), RN::Color(color, color, color, 1.0f));
+		}
+		
+		/// End drawing primitives.
+		virtual void end() = 0;
+	};*/
+	
+	struct FileIO : public duFileIO
+	{
+		FileIO()
+		{
+			_file = fopen("/Users/Sidney/Desktop/Mesh.obj", "wb");
+		}
+		
+		virtual ~FileIO()
+		{
+			fclose(_file);
+		}
+		
+			virtual bool isWriting() const { return true; }
+		virtual bool isReading() const { return false; }
+		virtual bool write(const void* ptr, const size_t size) { fwrite(ptr, size, 1, _file); return true; }
+		virtual bool read(void* ptr, const size_t size) { return false; }
+			
+		FILE *_file;
+	};
+	
 	RNDefineSingleton(NavigationManager)
 	
 	NavigationManager::NavigationManager() :
@@ -245,6 +321,9 @@ namespace WH
 			
 			if(dtCreateNavMeshData(&params, &navData, &navDataSize))
 			{
+				FileIO io;
+				duDumpPolyMeshDetailToObj(*detailPolyMesh, &io);
+				
 				_navMesh = dtAllocNavMesh();
 				_navMesh->init(navData, navDataSize, DT_TILE_FREE_DATA);
 				
@@ -329,16 +408,19 @@ namespace WH
 	
 	void NavigationManager::AddAgent(NavigationAgent *agent)
 	{
+		if(!_crowd)
+			return;
+		
 		RN::Vector3 position = agent->GetParent()->GetWorldPosition();
 		dtCrowdAgentParams params;
 		
 		params.radius = agentRadius;
 		params.height = agentHeight;
-		params.maxAcceleration = 1000.0f;
-		params.maxSpeed = 1.2f * 60.0f;
-		params.collisionQueryRange = params.radius * 8;
-		params.pathOptimizationRange = params.radius * 15;
-		params.separationWeight = 5;
+		params.maxAcceleration = 10.0f;
+		params.maxSpeed        = 6.0f;
+		params.collisionQueryRange   = params.radius * 4;
+		params.pathOptimizationRange = params.radius * 11;
+		params.separationWeight      = 3;
 		params.obstacleAvoidanceType = 0;
 		params.updateFlags = DT_CROWD_ANTICIPATE_TURNS | DT_CROWD_OBSTACLE_AVOIDANCE | DT_CROWD_SEPARATION | DT_CROWD_OPTIMIZE_VIS;
 		
@@ -392,5 +474,35 @@ namespace WH
 	{
 		if(_index != -1)
 			NavigationManager::GetSharedInstance()->RemoveAgent(this);
+	}
+	
+	void NavigationAgent::GetData(RN::Vector3 &position, RN::Vector3 &target)
+	{
+		if(_index == -1)
+			return;
+		
+		NavigationManager *manager = NavigationManager::GetSharedInstance();
+		manager->Lock();
+		
+		const dtCrowdAgent *agent = manager->_crowd->getAgent(_index);
+		
+		position.x = agent->npos[0];
+		position.y = agent->npos[1];
+		position.z = agent->npos[2];
+		
+		target.x = agent->targetPos[0];
+		target.y = agent->targetPos[1];
+		target.z = agent->targetPos[2];
+		
+		manager->Unlock();
+	}
+	
+	void NavigationAgent::Update(float delta)
+	{
+		RN::Vector3 position = GetPosition();
+		RN::Vector3 target;
+		
+		GetData(position, target);
+		SetPosition(position);
 	}
 }

@@ -18,7 +18,7 @@ namespace WH
 	
 	void Application::Start()
 	{
-		SetTitle("The White House");
+		SetTitle("The White(st) House (you know)");
 
 		// Pre-load the splatter textures
 		RN::Texture::WithFile("Textures/spatter/1.png")->Retain();
