@@ -15,6 +15,7 @@ namespace WH
 	{
 		SetModel(RN::Model::WithFile("Models/foodbowl/obstschale_02.sgm"));
 		SetPosition(position + rotation.GetRotatedVector(RN::Vector3(0.0f, 0.0f, -2.0f)));
+		SetRenderGroup(31);
 		
 		RN::bullet::RigidBody *body = new RN::bullet::RigidBody(RN::bullet::CylinderShape::WithHalfExtents(RN::Vector3(0.3f, 0.3f, 0.1f)), 1.0f);
 		
