@@ -85,13 +85,13 @@ namespace WH
 			
 			if(hit.node)
 			{
-				if(hit.node->IsKindOfClass(Critter::MetaClass()))
+				if(hit.node->IsKindOfClass(Critter::GetMetaClass()))
 				{
 					Critter *critter = static_cast<Critter *>(hit.node);
 					critter->Splatter();
 				}
 				
-				if(hit.node->IsKindOfClass(Balloon::MetaClass()))
+				if(hit.node->IsKindOfClass(Balloon::GetMetaClass()))
 				{
 					Balloon *balloon = static_cast<Balloon *>(hit.node);
 					balloon->Splatter();
